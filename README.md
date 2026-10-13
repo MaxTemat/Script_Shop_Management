@@ -78,7 +78,7 @@ Le module respecte le **multi-société** : chaque société ne voit que ses pro
 
 1. Cloner le dépôt dans un dossier d'addons d'Odoo, **sous le nom `script_shop_management`** :
    ```bash
-   git clone https://github.com/MaxTemat/Script_Shop_Management.git script_shop_management
+   git clone https://github.com/MaxTemat/Script_Shop_Management.git
    ```
 2. Redémarrer Odoo, activer le mode développeur, puis **Applications → Mettre à jour la liste des applications**.
 3. Rechercher **Script Shop Management** et cliquer sur **Activer**.
