@@ -1,0 +1,186 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* script_shop_management
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 19.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: script_shop_management
+#: model:ir.model.fields,field_description:script_shop_management.field_pos_config__is_shop
+msgid "Is a Shop"
+msgstr ""
+
+#. module: script_shop_management
+#: model:ir.model.fields,help:script_shop_management.field_pos_config__is_shop
+msgid "Check this box to manage this point of sale as a shop in Script Shop Management."
+msgstr ""
+
+#. module: script_shop_management
+#: model:ir.model.fields,field_description:script_shop_management.field_pos_config__shop_image
+msgid "Shop Image"
+msgstr ""
+
+#. module: script_shop_management
+#: model:ir.model.fields,field_description:script_shop_management.field_product_template__shop_ids
+msgid "Available in Shops"
+msgstr ""
+
+#. module: script_shop_management
+#: model:ir.model.fields,help:script_shop_management.field_product_template__shop_ids
+msgid "Shops where this product is sold."
+msgstr ""
+
+#. module: script_shop_management
+#: model:ir.model.fields,field_description:script_shop_management.field_purchase_order__shop_id
+#: model:ir.model.fields,field_description:script_shop_management.field_stock_picking__shop_id
+msgid "Destination Shop"
+msgstr ""
+
+#. module: script_shop_management
+#: model:ir.model.fields,help:script_shop_management.field_purchase_order__shop_id
+msgid "Shop that will receive the products of this purchase."
+msgstr ""
+
+#. module: script_shop_management
+#: model:ir.model.fields,help:script_shop_management.field_stock_picking__shop_id
+msgid "Shop this transfer is sent to."
+msgstr ""
+
+#. module: script_shop_management
+#: model_terms:ir.ui.view,arch_db:script_shop_management.shop_pos_order_view_list
+msgid "Shop Orders"
+msgstr ""
+
+#. module: script_shop_management
+#: model_terms:ir.ui.view,arch_db:script_shop_management.shop_pos_order_view_list
+#: model_terms:ir.ui.view,arch_db:script_shop_management.shop_pos_order_view_search
+msgid "Order"
+msgstr ""
+
+#. module: script_shop_management
+#: model_terms:ir.ui.view,arch_db:script_shop_management.shop_pos_order_view_list
+#: model_terms:ir.ui.view,arch_db:script_shop_management.shop_pos_order_view_search
+msgid "Receipt"
+msgstr ""
+
+#. module: script_shop_management
+#: model_terms:ir.ui.view,arch_db:script_shop_management.shop_pos_order_view_list
+#: model_terms:ir.ui.view,arch_db:script_shop_management.shop_pos_order_view_search
+#: model_terms:ir.ui.view,arch_db:script_shop_management.shop_pos_order_view_search
+#: model_terms:ir.ui.view,arch_db:script_shop_management.shop_purchase_order_view_search
+#: model_terms:ir.ui.view,arch_db:script_shop_management.shop_stock_picking_view_search
+msgid "Shop"
+msgstr ""
+
+#. module: script_shop_management
+#: model_terms:ir.ui.view,arch_db:script_shop_management.shop_pos_order_view_search
+msgid "Search Orders"
+msgstr ""
+
+#. module: script_shop_management
+#: model_terms:ir.ui.view,arch_db:script_shop_management.shop_pos_order_view_search
+#: model_terms:ir.ui.view,arch_db:script_shop_management.shop_purchase_order_view_search
+#: model_terms:ir.ui.view,arch_db:script_shop_management.shop_stock_picking_view_search
+msgid "Product"
+msgstr ""
+
+#. module: script_shop_management
+#: model_terms:ir.ui.view,arch_db:script_shop_management.shop_pos_order_view_search
+msgid "Paid"
+msgstr ""
+
+#. module: script_shop_management
+#: model_terms:ir.ui.view,arch_db:script_shop_management.shop_pos_order_view_search
+msgid "Day"
+msgstr ""
+
+#. module: script_shop_management
+#: model_terms:ir.ui.view,arch_db:script_shop_management.shop_pos_order_view_search
+#: model_terms:ir.ui.view,arch_db:script_shop_management.shop_purchase_order_view_search
+#: model_terms:ir.ui.view,arch_db:script_shop_management.shop_stock_picking_view_search
+msgid "Status"
+msgstr ""
+
+#. module: script_shop_management
+#: model:ir.actions.act_window,name:script_shop_management.shop_pos_order_action
+#: model:ir.ui.menu,name:script_shop_management.menu_shop_orders
+msgid "Orders"
+msgstr ""
+
+#. module: script_shop_management
+#: model_terms:ir.ui.view,arch_db:script_shop_management.shop_purchase_order_view_list
+msgid "Purchases by Shop"
+msgstr ""
+
+#. module: script_shop_management
+#: model_terms:ir.ui.view,arch_db:script_shop_management.shop_purchase_order_view_list
+#: model_terms:ir.ui.view,arch_db:script_shop_management.shop_purchase_order_view_search
+#: model_terms:ir.ui.view,arch_db:script_shop_management.shop_stock_picking_view_list
+#: model_terms:ir.ui.view,arch_db:script_shop_management.shop_stock_picking_view_search
+msgid "Reference"
+msgstr ""
+
+#. module: script_shop_management
+#: model_terms:ir.ui.view,arch_db:script_shop_management.shop_purchase_order_view_list
+msgid "Confirmation Date"
+msgstr ""
+
+#. module: script_shop_management
+#: model_terms:ir.ui.view,arch_db:script_shop_management.shop_purchase_order_view_search
+msgid "Search Purchases"
+msgstr ""
+
+#. module: script_shop_management
+#: model_terms:ir.ui.view,arch_db:script_shop_management.shop_purchase_order_view_search
+msgid "Confirmed"
+msgstr ""
+
+#. module: script_shop_management
+#: model_terms:ir.ui.view,arch_db:script_shop_management.shop_purchase_order_view_search
+msgid "Drafts"
+msgstr ""
+
+#. module: script_shop_management
+#: model_terms:ir.ui.view,arch_db:script_shop_management.shop_purchase_order_view_search
+msgid "Vendor"
+msgstr ""
+
+#. module: script_shop_management
+#: model:ir.actions.act_window,name:script_shop_management.shop_purchase_order_action
+#: model:ir.ui.menu,name:script_shop_management.menu_shop_purchase
+msgid "Purchases"
+msgstr ""
+
+#. module: script_shop_management
+#: model_terms:ir.ui.view,arch_db:script_shop_management.shop_stock_picking_view_list
+msgid "Transfers to Shops"
+msgstr ""
+
+#. module: script_shop_management
+#: model_terms:ir.ui.view,arch_db:script_shop_management.shop_stock_picking_view_search
+msgid "Search Transfers"
+msgstr ""
+
+#. module: script_shop_management
+#: model_terms:ir.ui.view,arch_db:script_shop_management.shop_stock_picking_view_search
+msgid "Ready"
+msgstr ""
+
+#. module: script_shop_management
+#: model_terms:ir.ui.view,arch_db:script_shop_management.shop_stock_picking_view_search
+msgid "Done"
+msgstr ""
+
+#. module: script_shop_management
+#: model:ir.actions.act_window,name:script_shop_management.shop_stock_picking_action
+#: model:ir.ui.menu,name:script_shop_management.menu_shop_stock
+msgid "Stock"
+msgstr ""

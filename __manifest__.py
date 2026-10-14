@@ -2,13 +2,13 @@
 {
     'name': 'Script Shop Management',
     'version': '19.0.1.0.0',
-    'summary': "Gestion des boutiques locales : achats, ventes, stock et tableau de bord",
+    'summary': "Local shop management: purchases, sales, stock and dashboard",
     'description': """
 Script Shop Management
 ======================
-Pilotage des boutiques (points de vente) depuis une seule application :
-- Dashboard par boutique (achats, ventes, stock, CA réel, meilleures ventes)
-- Achats, commandes de caisse et transferts de stock par boutique
+Manage your shops (points of sale) from a single application:
+- Dashboard per shop (purchases, sales, stock, real turnover, best sellers)
+- Purchases, point of sale orders and stock transfers per shop
 """,
     'author': 'Script Consulting',
     'category': 'Sales/Point of Sale',
@@ -19,6 +19,10 @@ Pilotage des boutiques (points de vente) depuis une seule application :
         'views/product_template_views.xml',
         'views/purchase_order_views.xml',
         'views/stock_picking_views.xml',
+        'views/purchase_order_list_views.xml',
+        'views/pos_order_list_views.xml',
+        'views/stock_picking_list_views.xml',
+        'views/shop_menus.xml',
     ],
     'assets': {},
     'application': True,

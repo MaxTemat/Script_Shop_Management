@@ -7,9 +7,9 @@ class StockPicking(models.Model):
 
     shop_id = fields.Many2one(
         'pos.config',
-        string="Boutique de destination",
+        string="Destination Shop",
         domain="[('is_shop', '=', True)]",
         index=True,
         tracking=True,
-        help="Boutique vers laquelle ce transfert est effectué.",
+        help="Shop this transfer is sent to.",
     )

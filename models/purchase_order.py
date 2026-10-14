@@ -7,9 +7,9 @@ class PurchaseOrder(models.Model):
 
     shop_id = fields.Many2one(
         'pos.config',
-        string="Boutique de destination",
+        string="Destination Shop",
         domain="[('is_shop', '=', True)]",
         index=True,
         tracking=True,
-        help="Boutique qui recevra les produits de cet achat.",
+        help="Shop that will receive the products of this purchase.",
     )
