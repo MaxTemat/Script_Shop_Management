@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <!-- Temporary menus (step 3): step 5 adds the Dashboard and security -->
+    <!-- Menus (step 5 adds the security groups) -->
     <menuitem id="menu_shop_root" name="Script Shop Management"
               web_icon="script_shop_management,static/description/icon.png" sequence="50"/>
+    <menuitem id="menu_shop_dashboard" name="Dashboard" parent="menu_shop_root"
+              action="shop_dashboard_action" sequence="10"/>
     <menuitem id="menu_shop_purchase" name="Purchases" parent="menu_shop_root"
               action="shop_purchase_order_action" sequence="20"/>
     <menuitem id="menu_shop_orders" name="Orders" parent="menu_shop_root"

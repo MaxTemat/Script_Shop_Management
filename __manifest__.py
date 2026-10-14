@@ -22,9 +22,16 @@ Manage your shops (points of sale) from a single application:
         'views/purchase_order_list_views.xml',
         'views/pos_order_list_views.xml',
         'views/stock_picking_list_views.xml',
+        'views/shop_dashboard_views.xml',
         'views/shop_menus.xml',
     ],
-    'assets': {},
+    'assets': {
+        'web.assets_backend': [
+            'script_shop_management/static/src/dashboard/shop_dashboard.js',
+            'script_shop_management/static/src/dashboard/shop_dashboard.xml',
+            'script_shop_management/static/src/dashboard/shop_dashboard.scss',
+        ],
+    },
     'application': True,
     'installable': True,
 }

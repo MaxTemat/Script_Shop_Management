@@ -155,8 +155,10 @@ msgid "Vendor"
 msgstr "Fournisseur"
 
 #. module: script_shop_management
+#. odoo-javascript
 #: model:ir.actions.act_window,name:script_shop_management.shop_purchase_order_action
 #: model:ir.ui.menu,name:script_shop_management.menu_shop_purchase
+#: code:addons/script_shop_management/static/src/dashboard/shop_dashboard.xml:0
 msgid "Purchases"
 msgstr "Achats"
 
@@ -181,7 +183,165 @@ msgid "Done"
 msgstr "Terminés"
 
 #. module: script_shop_management
+#. odoo-javascript
 #: model:ir.actions.act_window,name:script_shop_management.shop_stock_picking_action
 #: model:ir.ui.menu,name:script_shop_management.menu_shop_stock
+#: code:addons/script_shop_management/static/src/dashboard/shop_dashboard.xml:0
 msgid "Stock"
 msgstr "Stock"
+
+#. module: script_shop_management
+#. odoo-python
+#: code:addons/script_shop_management/models/shop_dashboard.py:0
+msgid "All shops"
+msgstr "Toutes les boutiques"
+
+#. module: script_shop_management
+#. odoo-javascript
+#: code:addons/script_shop_management/static/src/dashboard/shop_dashboard.js:0
+msgid "Today"
+msgstr "Aujourd'hui"
+
+#. module: script_shop_management
+#. odoo-javascript
+#: code:addons/script_shop_management/static/src/dashboard/shop_dashboard.js:0
+msgid "This week"
+msgstr "Cette semaine"
+
+#. module: script_shop_management
+#. odoo-javascript
+#: code:addons/script_shop_management/static/src/dashboard/shop_dashboard.js:0
+msgid "This month"
+msgstr "Ce mois-ci"
+
+#. module: script_shop_management
+#. odoo-javascript
+#: code:addons/script_shop_management/static/src/dashboard/shop_dashboard.js:0
+msgid "This year"
+msgstr "Cette année"
+
+#. module: script_shop_management
+#. odoo-javascript
+#: code:addons/script_shop_management/static/src/dashboard/shop_dashboard.js:0
+msgid "Custom"
+msgstr "Personnalisé"
+
+#. module: script_shop_management
+#. odoo-javascript
+#: code:addons/script_shop_management/static/src/dashboard/shop_dashboard.xml:0
+msgid "Shops"
+msgstr "Boutiques"
+
+#. module: script_shop_management
+#. odoo-javascript
+#: code:addons/script_shop_management/static/src/dashboard/shop_dashboard.xml:0
+msgid "shop(s)"
+msgstr "boutique(s)"
+
+#. module: script_shop_management
+#. odoo-javascript
+#: code:addons/script_shop_management/static/src/dashboard/shop_dashboard.xml:0
+msgid "No shop yet: tick \"Is a Shop\" on a point of sale to see it here."
+msgstr "Aucune boutique : cochez « Est une boutique » sur un point de vente pour la voir ici."
+
+#. module: script_shop_management
+#. odoo-javascript
+#: code:addons/script_shop_management/static/src/dashboard/shop_dashboard.xml:0
+msgid "Sales"
+msgstr "Ventes"
+
+#. module: script_shop_management
+#. odoo-javascript
+#: code:addons/script_shop_management/static/src/dashboard/shop_dashboard.xml:0
+msgid "Real turnover"
+msgstr "CA réel"
+
+#. module: script_shop_management
+#. odoo-javascript
+#: code:addons/script_shop_management/static/src/dashboard/shop_dashboard.xml:0
+msgid "Tax excluded, net of refunds"
+msgstr "Hors taxes, net des remboursements"
+
+#. module: script_shop_management
+#. odoo-javascript
+#: code:addons/script_shop_management/static/src/dashboard/shop_dashboard.xml:0
+msgid "confirmed order(s)"
+msgstr "commande(s) confirmée(s)"
+
+#. module: script_shop_management
+#. odoo-javascript
+#: code:addons/script_shop_management/static/src/dashboard/shop_dashboard.xml:0
+msgid "order(s),"
+msgstr "commande(s),"
+
+#. module: script_shop_management
+#. odoo-javascript
+#: code:addons/script_shop_management/static/src/dashboard/shop_dashboard.xml:0
+msgid "refund(s)"
+msgstr "remboursement(s)"
+
+#. module: script_shop_management
+#. odoo-javascript
+#: code:addons/script_shop_management/static/src/dashboard/shop_dashboard.xml:0
+msgid "unit(s),"
+msgstr "unité(s),"
+
+#. module: script_shop_management
+#. odoo-javascript
+#: code:addons/script_shop_management/static/src/dashboard/shop_dashboard.xml:0
+msgid "transfer(s) received"
+msgstr "transfert(s) reçu(s)"
+
+#. module: script_shop_management
+#. odoo-javascript
+#: code:addons/script_shop_management/static/src/dashboard/shop_dashboard.xml:0
+msgid "Best-selling products"
+msgstr "Produits les plus vendus"
+
+#. module: script_shop_management
+#. odoo-javascript
+#: code:addons/script_shop_management/static/src/dashboard/shop_dashboard.xml:0
+msgid "Least-selling products"
+msgstr "Produits les moins vendus"
+
+#. module: script_shop_management
+#. odoo-javascript
+#: code:addons/script_shop_management/static/src/dashboard/shop_dashboard.xml:0
+msgid "No sales over this period."
+msgstr "Aucune vente sur cette période."
+
+#. module: script_shop_management
+#. odoo-javascript
+#: code:addons/script_shop_management/static/src/dashboard/shop_dashboard.xml:0
+msgid "No product assigned to this shop."
+msgstr "Aucun produit assigné à cette boutique."
+
+#. module: script_shop_management
+#. odoo-javascript
+#: code:addons/script_shop_management/static/src/dashboard/shop_dashboard.xml:0
+msgid "Loading…"
+msgstr "Chargement…"
+
+#. module: script_shop_management
+#: model:ir.actions.client,name:script_shop_management.shop_dashboard_action
+#: model:ir.ui.menu,name:script_shop_management.menu_shop_dashboard
+msgid "Dashboard"
+msgstr "Tableau de bord"
+
+#. module: script_shop_management
+#. odoo-javascript
+#: code:addons/script_shop_management/static/src/dashboard/shop_dashboard.js:0
+msgid "Best sellers share"
+msgstr "Part des meilleures ventes"
+
+#. module: script_shop_management
+#. odoo-javascript
+#: code:addons/script_shop_management/static/src/dashboard/shop_dashboard.js:0
+msgid "Turnover by shop"
+msgstr "CA par boutique"
+
+#. module: script_shop_management
+#. odoo-javascript
+#: code:addons/script_shop_management/static/src/dashboard/shop_dashboard.xml:0
+msgid "Turnover and purchases"
+msgstr "CA et achats"
