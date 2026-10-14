@@ -7,6 +7,7 @@
         <field name="arch" type="xml">
             <field name="categ_id" position="after">
                 <field name="shop_ids" widget="many2many_tags"
+                       groups="script_shop_management.group_shop_manager"
                        options="{'no_create': True}"/>
             </field>
         </field>

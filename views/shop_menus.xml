@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <!-- Menus (step 5 adds the security groups) -->
+    <!-- Menus: visible to the shop users and managers (see security/security.xml) -->
     <menuitem id="menu_shop_root" name="Script Shop Management"
-              web_icon="script_shop_management,static/description/icon.png" sequence="50"/>
+              web_icon="script_shop_management,static/description/icon.png" sequence="50"
+              groups="group_shop_user"/>
     <menuitem id="menu_shop_dashboard" name="Dashboard" parent="menu_shop_root"
               action="shop_dashboard_action" sequence="10"/>
     <menuitem id="menu_shop_purchase" name="Purchases" parent="menu_shop_root"

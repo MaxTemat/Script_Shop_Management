@@ -6,10 +6,11 @@
         <field name="inherit_id" ref="point_of_sale.pos_config_view_form"/>
         <field name="arch" type="xml">
             <xpath expr="//div[@id='title']" position="before">
-                <field name="shop_image" widget="image" class="oe_avatar"/>
+                <field name="shop_image" widget="image" class="oe_avatar"
+                       groups="script_shop_management.group_shop_manager"/>
             </xpath>
             <xpath expr="//div[@id='title']" position="after">
-                <group name="shop_info">
+                <group name="shop_info" groups="script_shop_management.group_shop_manager">
                     <field name="is_shop"/>
                 </group>
             </xpath>

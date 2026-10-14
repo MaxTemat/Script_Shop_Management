@@ -4,6 +4,7 @@ from datetime import datetime, time, timedelta
 import pytz
 
 from odoo import _, api, fields, models
+from odoo.exceptions import AccessError
 
 TOP_LIMIT = 5
 SOLD_STATES = ('paid', 'done', 'invoiced')
@@ -16,12 +17,18 @@ class ShopDashboard(models.AbstractModel):
     _description = "Shop Dashboard"
 
     @api.model
+    def _check_access_group(self):
+        if not self.env.user.has_group('script_shop_management.group_shop_user'):
+            raise AccessError(_("You are not allowed to access the shop dashboard."))
+
+    @api.model
     def _get_shops(self):
         return self.env['pos.config'].search([('is_shop', '=', True)])
 
     @api.model
     def get_shops(self):
         """Cards of the dashboard: one for all the shops, then one per shop."""
+        self._check_access_group()
         company = self.env.company
         shops = self._get_shops()
         cards = [{
@@ -51,6 +58,7 @@ class ShopDashboard(models.AbstractModel):
     @api.model
     def get_data(self, shop_id, date_from, date_to):
         """Indicators of one shop (or of all the shops when shop_id is falsy) over a period."""
+        self._check_access_group()
         shops = self.env['pos.config'].browse(shop_id) if shop_id else self._get_shops()
         start, end = self._to_utc(date_from), self._to_utc(date_to, end=True)
         currency = self.env.company.currency_id

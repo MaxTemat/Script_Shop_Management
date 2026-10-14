@@ -15,6 +15,8 @@ Manage your shops (points of sale) from a single application:
     'license': 'LGPL-3',
     'depends': ['point_of_sale', 'purchase', 'stock'],
     'data': [
+        'security/security.xml',
+        'security/ir.model.access.csv',
         'views/pos_config_views.xml',
         'views/product_template_views.xml',
         'views/purchase_order_views.xml',

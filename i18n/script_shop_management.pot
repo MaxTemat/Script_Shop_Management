@@ -344,3 +344,32 @@ msgstr ""
 #: code:addons/script_shop_management/static/src/dashboard/shop_dashboard.xml:0
 msgid "Turnover and purchases"
 msgstr ""
+
+#. module: script_shop_management
+#: model:res.groups.privilege,name:script_shop_management.res_groups_privilege_shop_management
+#: model:ir.ui.menu,name:script_shop_management.menu_shop_root
+msgid "Script Shop Management"
+msgstr ""
+
+#. module: script_shop_management
+#: model:res.groups,name:script_shop_management.group_shop_user
+msgid "User"
+msgstr ""
+
+#. module: script_shop_management
+#: model:res.groups,name:script_shop_management.group_shop_manager
+msgid "Manager"
+msgstr ""
+
+#. module: script_shop_management
+#. odoo-python
+#: code:addons/script_shop_management/models/shop_dashboard.py:0
+msgid "You are not allowed to access the shop dashboard."
+msgstr ""
+
+#. module: script_shop_management
+#. odoo-python
+#: code:addons/script_shop_management/models/purchase_order.py:0
+#: code:addons/script_shop_management/models/stock_picking.py:0
+msgid "The shop %(shop)s does not belong to the company %(company)s."
+msgstr ""
