@@ -15,7 +15,10 @@ Pilotage des boutiques (points de vente) depuis une seule application :
     'license': 'LGPL-3',
     'depends': ['point_of_sale', 'purchase', 'stock'],
     'data': [
-        # Les fichiers XML / CSV seront ajoutés au fil des épisodes
+        'views/pos_config_views.xml',
+        'views/product_template_views.xml',
+        'views/purchase_order_views.xml',
+        'views/stock_picking_views.xml',
     ],
     'assets': {},
     'application': True,
