@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="static/description/icon.png" alt="Script Shop Management" width="140">
+  <img src="script_shop_management/static/description/icon.png" alt="Script Shop Management" width="140">
 </p>
 
 <h1 align="center">Script Shop Management</h1>
