@@ -1,0 +1,376 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* script_shop_management
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 19.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Language: fr\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: script_shop_management
+#: model:ir.model.fields,field_description:script_shop_management.field_pos_config__is_shop
+msgid "Is a Shop"
+msgstr "Est une boutique"
+
+#. module: script_shop_management
+#: model:ir.model.fields,help:script_shop_management.field_pos_config__is_shop
+msgid "Check this box to manage this point of sale as a shop in Script Shop Management."
+msgstr "Cochez cette case pour que ce point de vente soit géré comme une boutique dans Script Shop Management."
+
+#. module: script_shop_management
+#: model:ir.model.fields,field_description:script_shop_management.field_pos_config__shop_image
+msgid "Shop Image"
+msgstr "Image de la boutique"
+
+#. module: script_shop_management
+#: model:ir.model.fields,field_description:script_shop_management.field_product_template__shop_ids
+msgid "Available in Shops"
+msgstr "Disponible dans les boutiques"
+
+#. module: script_shop_management
+#: model:ir.model.fields,help:script_shop_management.field_product_template__shop_ids
+msgid "Shops where this product is sold."
+msgstr "Boutiques dans lesquelles ce produit est vendu."
+
+#. module: script_shop_management
+#: model:ir.model.fields,field_description:script_shop_management.field_purchase_order__shop_id
+#: model:ir.model.fields,field_description:script_shop_management.field_stock_picking__shop_id
+msgid "Destination Shop"
+msgstr "Boutique de destination"
+
+#. module: script_shop_management
+#: model:ir.model.fields,help:script_shop_management.field_purchase_order__shop_id
+msgid "Shop that will receive the products of this purchase."
+msgstr "Boutique qui recevra les produits de cet achat."
+
+#. module: script_shop_management
+#: model:ir.model.fields,help:script_shop_management.field_stock_picking__shop_id
+msgid "Shop this transfer is sent to."
+msgstr "Boutique vers laquelle ce transfert est effectué."
+
+#. module: script_shop_management
+#: model_terms:ir.ui.view,arch_db:script_shop_management.shop_pos_order_view_list
+msgid "Shop Orders"
+msgstr "Commandes des boutiques"
+
+#. module: script_shop_management
+#: model_terms:ir.ui.view,arch_db:script_shop_management.shop_pos_order_view_list
+#: model_terms:ir.ui.view,arch_db:script_shop_management.shop_pos_order_view_search
+msgid "Order"
+msgstr "Commande"
+
+#. module: script_shop_management
+#: model_terms:ir.ui.view,arch_db:script_shop_management.shop_pos_order_view_list
+#: model_terms:ir.ui.view,arch_db:script_shop_management.shop_pos_order_view_search
+msgid "Receipt"
+msgstr "Ticket"
+
+#. module: script_shop_management
+#: model_terms:ir.ui.view,arch_db:script_shop_management.shop_pos_order_view_list
+#: model_terms:ir.ui.view,arch_db:script_shop_management.shop_pos_order_view_search
+#: model_terms:ir.ui.view,arch_db:script_shop_management.shop_pos_order_view_search
+#: model_terms:ir.ui.view,arch_db:script_shop_management.shop_purchase_order_view_search
+#: model_terms:ir.ui.view,arch_db:script_shop_management.shop_stock_picking_view_search
+msgid "Shop"
+msgstr "Boutique"
+
+#. module: script_shop_management
+#: model_terms:ir.ui.view,arch_db:script_shop_management.shop_pos_order_view_search
+msgid "Search Orders"
+msgstr "Rechercher une commande"
+
+#. module: script_shop_management
+#: model_terms:ir.ui.view,arch_db:script_shop_management.shop_pos_order_view_search
+#: model_terms:ir.ui.view,arch_db:script_shop_management.shop_purchase_order_view_search
+#: model_terms:ir.ui.view,arch_db:script_shop_management.shop_stock_picking_view_search
+msgid "Product"
+msgstr "Produit"
+
+#. module: script_shop_management
+#: model_terms:ir.ui.view,arch_db:script_shop_management.shop_pos_order_view_search
+msgid "Paid"
+msgstr "Payées"
+
+#. module: script_shop_management
+#: model_terms:ir.ui.view,arch_db:script_shop_management.shop_pos_order_view_search
+msgid "Day"
+msgstr "Jour"
+
+#. module: script_shop_management
+#: model_terms:ir.ui.view,arch_db:script_shop_management.shop_pos_order_view_search
+#: model_terms:ir.ui.view,arch_db:script_shop_management.shop_purchase_order_view_search
+#: model_terms:ir.ui.view,arch_db:script_shop_management.shop_stock_picking_view_search
+msgid "Status"
+msgstr "Statut"
+
+#. module: script_shop_management
+#: model:ir.actions.act_window,name:script_shop_management.shop_pos_order_action
+#: model:ir.ui.menu,name:script_shop_management.menu_shop_orders
+msgid "Orders"
+msgstr "Commandes"
+
+#. module: script_shop_management
+#: model_terms:ir.ui.view,arch_db:script_shop_management.shop_purchase_order_view_list
+msgid "Purchases by Shop"
+msgstr "Achats par boutique"
+
+#. module: script_shop_management
+#: model_terms:ir.ui.view,arch_db:script_shop_management.shop_purchase_order_view_list
+#: model_terms:ir.ui.view,arch_db:script_shop_management.shop_purchase_order_view_search
+#: model_terms:ir.ui.view,arch_db:script_shop_management.shop_stock_picking_view_list
+#: model_terms:ir.ui.view,arch_db:script_shop_management.shop_stock_picking_view_search
+msgid "Reference"
+msgstr "Référence"
+
+#. module: script_shop_management
+#: model_terms:ir.ui.view,arch_db:script_shop_management.shop_purchase_order_view_list
+msgid "Confirmation Date"
+msgstr "Date de confirmation"
+
+#. module: script_shop_management
+#: model_terms:ir.ui.view,arch_db:script_shop_management.shop_purchase_order_view_search
+msgid "Search Purchases"
+msgstr "Rechercher un achat"
+
+#. module: script_shop_management
+#: model_terms:ir.ui.view,arch_db:script_shop_management.shop_purchase_order_view_search
+msgid "Confirmed"
+msgstr "Confirmés"
+
+#. module: script_shop_management
+#: model_terms:ir.ui.view,arch_db:script_shop_management.shop_purchase_order_view_search
+msgid "Drafts"
+msgstr "Brouillons"
+
+#. module: script_shop_management
+#: model_terms:ir.ui.view,arch_db:script_shop_management.shop_purchase_order_view_search
+msgid "Vendor"
+msgstr "Fournisseur"
+
+#. module: script_shop_management
+#. odoo-javascript
+#: model:ir.actions.act_window,name:script_shop_management.shop_purchase_order_action
+#: model:ir.ui.menu,name:script_shop_management.menu_shop_purchase
+#: code:addons/script_shop_management/static/src/dashboard/shop_dashboard.xml:0
+msgid "Purchases"
+msgstr "Achats"
+
+#. module: script_shop_management
+#: model_terms:ir.ui.view,arch_db:script_shop_management.shop_stock_picking_view_list
+msgid "Transfers to Shops"
+msgstr "Transferts vers les boutiques"
+
+#. module: script_shop_management
+#: model_terms:ir.ui.view,arch_db:script_shop_management.shop_stock_picking_view_search
+msgid "Search Transfers"
+msgstr "Rechercher un transfert"
+
+#. module: script_shop_management
+#: model_terms:ir.ui.view,arch_db:script_shop_management.shop_stock_picking_view_search
+msgid "Ready"
+msgstr "Prêts"
+
+#. module: script_shop_management
+#: model_terms:ir.ui.view,arch_db:script_shop_management.shop_stock_picking_view_search
+msgid "Done"
+msgstr "Terminés"
+
+#. module: script_shop_management
+#. odoo-javascript
+#: model:ir.actions.act_window,name:script_shop_management.shop_stock_picking_action
+#: model:ir.ui.menu,name:script_shop_management.menu_shop_stock
+#: code:addons/script_shop_management/static/src/dashboard/shop_dashboard.xml:0
+msgid "Stock"
+msgstr "Stock"
+
+#. module: script_shop_management
+#. odoo-python
+#: code:addons/script_shop_management/models/shop_dashboard.py:0
+msgid "All shops"
+msgstr "Toutes les boutiques"
+
+#. module: script_shop_management
+#. odoo-javascript
+#: code:addons/script_shop_management/static/src/dashboard/shop_dashboard.js:0
+msgid "Today"
+msgstr "Aujourd'hui"
+
+#. module: script_shop_management
+#. odoo-javascript
+#: code:addons/script_shop_management/static/src/dashboard/shop_dashboard.js:0
+msgid "This week"
+msgstr "Cette semaine"
+
+#. module: script_shop_management
+#. odoo-javascript
+#: code:addons/script_shop_management/static/src/dashboard/shop_dashboard.js:0
+msgid "This month"
+msgstr "Ce mois-ci"
+
+#. module: script_shop_management
+#. odoo-javascript
+#: code:addons/script_shop_management/static/src/dashboard/shop_dashboard.js:0
+msgid "This year"
+msgstr "Cette année"
+
+#. module: script_shop_management
+#. odoo-javascript
+#: code:addons/script_shop_management/static/src/dashboard/shop_dashboard.js:0
+msgid "Custom"
+msgstr "Personnalisé"
+
+#. module: script_shop_management
+#. odoo-javascript
+#: code:addons/script_shop_management/static/src/dashboard/shop_dashboard.xml:0
+msgid "Shops"
+msgstr "Boutiques"
+
+#. module: script_shop_management
+#. odoo-javascript
+#: code:addons/script_shop_management/static/src/dashboard/shop_dashboard.xml:0
+msgid "shop(s)"
+msgstr "boutique(s)"
+
+#. module: script_shop_management
+#. odoo-javascript
+#: code:addons/script_shop_management/static/src/dashboard/shop_dashboard.xml:0
+msgid "No shop yet: tick \"Is a Shop\" on a point of sale to see it here."
+msgstr "Aucune boutique : cochez « Est une boutique » sur un point de vente pour la voir ici."
+
+#. module: script_shop_management
+#. odoo-javascript
+#: code:addons/script_shop_management/static/src/dashboard/shop_dashboard.xml:0
+msgid "Sales"
+msgstr "Ventes"
+
+#. module: script_shop_management
+#. odoo-javascript
+#: code:addons/script_shop_management/static/src/dashboard/shop_dashboard.xml:0
+msgid "Real turnover"
+msgstr "CA réel"
+
+#. module: script_shop_management
+#. odoo-javascript
+#: code:addons/script_shop_management/static/src/dashboard/shop_dashboard.xml:0
+msgid "Tax excluded, net of refunds"
+msgstr "Hors taxes, net des remboursements"
+
+#. module: script_shop_management
+#. odoo-javascript
+#: code:addons/script_shop_management/static/src/dashboard/shop_dashboard.xml:0
+msgid "confirmed order(s)"
+msgstr "commande(s) confirmée(s)"
+
+#. module: script_shop_management
+#. odoo-javascript
+#: code:addons/script_shop_management/static/src/dashboard/shop_dashboard.xml:0
+msgid "order(s),"
+msgstr "commande(s),"
+
+#. module: script_shop_management
+#. odoo-javascript
+#: code:addons/script_shop_management/static/src/dashboard/shop_dashboard.xml:0
+msgid "refund(s)"
+msgstr "remboursement(s)"
+
+#. module: script_shop_management
+#. odoo-javascript
+#: code:addons/script_shop_management/static/src/dashboard/shop_dashboard.xml:0
+msgid "unit(s),"
+msgstr "unité(s),"
+
+#. module: script_shop_management
+#. odoo-javascript
+#: code:addons/script_shop_management/static/src/dashboard/shop_dashboard.xml:0
+msgid "transfer(s) received"
+msgstr "transfert(s) reçu(s)"
+
+#. module: script_shop_management
+#. odoo-javascript
+#: code:addons/script_shop_management/static/src/dashboard/shop_dashboard.xml:0
+msgid "Best-selling products"
+msgstr "Produits les plus vendus"
+
+#. module: script_shop_management
+#. odoo-javascript
+#: code:addons/script_shop_management/static/src/dashboard/shop_dashboard.xml:0
+msgid "Least-selling products"
+msgstr "Produits les moins vendus"
+
+#. module: script_shop_management
+#. odoo-javascript
+#: code:addons/script_shop_management/static/src/dashboard/shop_dashboard.xml:0
+msgid "No sales over this period."
+msgstr "Aucune vente sur cette période."
+
+#. module: script_shop_management
+#. odoo-javascript
+#: code:addons/script_shop_management/static/src/dashboard/shop_dashboard.xml:0
+msgid "No product assigned to this shop."
+msgstr "Aucun produit assigné à cette boutique."
+
+#. module: script_shop_management
+#. odoo-javascript
+#: code:addons/script_shop_management/static/src/dashboard/shop_dashboard.xml:0
+msgid "Loading…"
+msgstr "Chargement…"
+
+#. module: script_shop_management
+#: model:ir.actions.client,name:script_shop_management.shop_dashboard_action
+#: model:ir.ui.menu,name:script_shop_management.menu_shop_dashboard
+msgid "Dashboard"
+msgstr "Tableau de bord"
+
+#. module: script_shop_management
+#. odoo-javascript
+#: code:addons/script_shop_management/static/src/dashboard/shop_dashboard.js:0
+msgid "Best sellers share"
+msgstr "Part des meilleures ventes"
+
+#. module: script_shop_management
+#. odoo-javascript
+#: code:addons/script_shop_management/static/src/dashboard/shop_dashboard.js:0
+msgid "Turnover by shop"
+msgstr "CA par boutique"
+
+#. module: script_shop_management
+#. odoo-javascript
+#: code:addons/script_shop_management/static/src/dashboard/shop_dashboard.xml:0
+msgid "Turnover and purchases"
+msgstr "CA et achats"
+
+#. module: script_shop_management
+#: model:res.groups.privilege,name:script_shop_management.res_groups_privilege_shop_management
+#: model:ir.ui.menu,name:script_shop_management.menu_shop_root
+msgid "Script Shop Management"
+msgstr "Script Shop Management"
+
+#. module: script_shop_management
+#: model:res.groups,name:script_shop_management.group_shop_user
+msgid "User"
+msgstr "Utilisateur"
+
+#. module: script_shop_management
+#: model:res.groups,name:script_shop_management.group_shop_manager
+msgid "Manager"
+msgstr "Responsable"
+
+#. module: script_shop_management
+#. odoo-python
+#: code:addons/script_shop_management/models/shop_dashboard.py:0
+msgid "You are not allowed to access the shop dashboard."
+msgstr "Vous n'avez pas le droit d'accéder au tableau de bord des boutiques."
+
+#. module: script_shop_management
+#. odoo-python
+#: code:addons/script_shop_management/models/purchase_order.py:0
+#: code:addons/script_shop_management/models/stock_picking.py:0
+msgid "The shop %(shop)s does not belong to the company %(company)s."
+msgstr "La boutique %(shop)s n'appartient pas à la société %(company)s."

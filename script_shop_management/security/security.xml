@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="res_groups_privilege_shop_management" model="res.groups.privilege">
+        <field name="name">Script Shop Management</field>
+        <field name="sequence">22</field>
+        <field name="category_id" ref="base.module_category_sales"/>
+    </record>
+
+    <!-- User: sees the dashboard and the purchases, orders and stock of the shops -->
+    <record id="group_shop_user" model="res.groups">
+        <field name="name">User</field>
+        <field name="sequence">10</field>
+        <field name="privilege_id" ref="res_groups_privilege_shop_management"/>
+        <field name="implied_ids" eval="[
+            (4, ref('point_of_sale.group_pos_user')),
+            (4, ref('purchase.group_purchase_user')),
+            (4, ref('stock.group_stock_user')),
+        ]"/>
+    </record>
+
+    <!-- Manager: also sets up the shops (shop flag, image, products of each shop) -->
+    <record id="group_shop_manager" model="res.groups">
+        <field name="name">Manager</field>
+        <field name="sequence">20</field>
+        <field name="privilege_id" ref="res_groups_privilege_shop_management"/>
+        <field name="implied_ids" eval="[
+            (4, ref('group_shop_user')),
+            (4, ref('point_of_sale.group_pos_manager')),
+            (4, ref('purchase.group_purchase_manager')),
+            (4, ref('stock.group_stock_manager')),
+        ]"/>
+        <field name="user_ids" eval="[(4, ref('base.user_root')), (4, ref('base.user_admin'))]"/>
+    </record>
+</odoo>
