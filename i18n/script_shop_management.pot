@@ -15,6 +15,7 @@ msgstr ""
 
 #. module: script_shop_management
 #: model:ir.model.fields,field_description:script_shop_management.field_pos_config__is_shop
+#: model:ir.model.fields,field_description:script_shop_management.field_website__is_shop
 msgid "Is a Shop"
 msgstr ""
 
@@ -25,6 +26,7 @@ msgstr ""
 
 #. module: script_shop_management
 #: model:ir.model.fields,field_description:script_shop_management.field_pos_config__shop_image
+#: model:ir.model.fields,field_description:script_shop_management.field_website__shop_image
 msgid "Shop Image"
 msgstr ""
 
@@ -372,4 +374,29 @@ msgstr ""
 #: code:addons/script_shop_management/models/purchase_order.py:0
 #: code:addons/script_shop_management/models/stock_picking.py:0
 msgid "The shop %(shop)s does not belong to the company %(company)s."
+msgstr ""
+
+#. module: script_shop_management
+#: model:ir.model.fields,help:script_shop_management.field_website__is_shop
+msgid "Tick this box to manage this website as an online shop in Script Shop Management."
+msgstr ""
+
+#. module: script_shop_management
+#: model:ir.model.fields,help:script_shop_management.field_website__shop_image
+msgid "Image of the online shop. Used when the website is not linked to a local shop."
+msgstr ""
+
+#. module: script_shop_management
+#: model:ir.model.fields,field_description:script_shop_management.field_website__local_shop_id
+msgid "Linked Local Shop"
+msgstr ""
+
+#. module: script_shop_management
+#: model:ir.model.fields,help:script_shop_management.field_website__local_shop_id
+msgid "Local shop whose image, destination shop and stock are shared with this website. Leave empty to manage the website as a shop of its own."
+msgstr ""
+
+#. module: script_shop_management
+#: model_terms:ir.ui.view,arch_db:script_shop_management.view_website_form_shop
+msgid "Online Shop"
 msgstr ""
