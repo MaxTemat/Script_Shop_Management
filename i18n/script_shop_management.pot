@@ -43,6 +43,7 @@ msgstr ""
 #. module: script_shop_management
 #: model:ir.model.fields,field_description:script_shop_management.field_purchase_order__shop_id
 #: model:ir.model.fields,field_description:script_shop_management.field_stock_picking__shop_id
+#: model:ir.model.fields,field_description:script_shop_management.field_website__destination_shop_id
 msgid "Destination Shop"
 msgstr ""
 
@@ -373,6 +374,7 @@ msgstr ""
 #. odoo-python
 #: code:addons/script_shop_management/models/purchase_order.py:0
 #: code:addons/script_shop_management/models/stock_picking.py:0
+#: code:addons/script_shop_management/models/website.py:0
 msgid "The shop %(shop)s does not belong to the company %(company)s."
 msgstr ""
 
@@ -383,7 +385,7 @@ msgstr ""
 
 #. module: script_shop_management
 #: model:ir.model.fields,help:script_shop_management.field_website__shop_image
-msgid "Image of the online shop. Used when the website is not linked to a local shop."
+msgid "Image of the online shop. When the website is linked to a local shop, the image is loaded from it."
 msgstr ""
 
 #. module: script_shop_management
@@ -399,4 +401,30 @@ msgstr ""
 #. module: script_shop_management
 #: model_terms:ir.ui.view,arch_db:script_shop_management.view_website_form_shop
 msgid "Online Shop"
+msgstr ""
+
+#. module: script_shop_management
+#: model:ir.model.fields,help:script_shop_management.field_website__destination_shop_id
+msgid "Destination shop of the website: the linked local shop."
+msgstr ""
+
+#. module: script_shop_management
+#: model:ir.model.fields,field_description:script_shop_management.field_website__own_warehouse_id
+msgid "Own Warehouse"
+msgstr ""
+
+#. module: script_shop_management
+#: model:ir.model.fields,help:script_shop_management.field_website__own_warehouse_id
+msgid "Warehouse created automatically for a website that is a shop of its own."
+msgstr ""
+
+#. module: script_shop_management
+#: model:ir.model.constraint,message:script_shop_management.constraint_website_local_shop_uniq
+msgid "A local shop can only be linked to one website."
+msgstr ""
+
+#. module: script_shop_management
+#. odoo-python
+#: code:addons/script_shop_management/models/website.py:0
+msgid "A website linked to a local shop must be flagged as a shop."
 msgstr ""

@@ -44,6 +44,7 @@ msgstr "Boutiques dans lesquelles ce produit est vendu."
 #. module: script_shop_management
 #: model:ir.model.fields,field_description:script_shop_management.field_purchase_order__shop_id
 #: model:ir.model.fields,field_description:script_shop_management.field_stock_picking__shop_id
+#: model:ir.model.fields,field_description:script_shop_management.field_website__destination_shop_id
 msgid "Destination Shop"
 msgstr "Boutique de destination"
 
@@ -374,6 +375,7 @@ msgstr "Vous n'avez pas le droit d'accéder au tableau de bord des boutiques."
 #. odoo-python
 #: code:addons/script_shop_management/models/purchase_order.py:0
 #: code:addons/script_shop_management/models/stock_picking.py:0
+#: code:addons/script_shop_management/models/website.py:0
 msgid "The shop %(shop)s does not belong to the company %(company)s."
 msgstr "La boutique %(shop)s n'appartient pas à la société %(company)s."
 
@@ -384,8 +386,8 @@ msgstr "Cochez cette case pour gérer ce site web comme une boutique en ligne da
 
 #. module: script_shop_management
 #: model:ir.model.fields,help:script_shop_management.field_website__shop_image
-msgid "Image of the online shop. Used when the website is not linked to a local shop."
-msgstr "Image de la boutique en ligne. Utilisée quand le site web n'est pas lié à une boutique locale."
+msgid "Image of the online shop. When the website is linked to a local shop, the image is loaded from it."
+msgstr "Image de la boutique en ligne. Quand le site web est lié à une boutique locale, l'image est chargée depuis celle-ci."
 
 #. module: script_shop_management
 #: model:ir.model.fields,field_description:script_shop_management.field_website__local_shop_id
@@ -401,3 +403,29 @@ msgstr "Boutique locale dont l'image, la boutique de destination et le stock son
 #: model_terms:ir.ui.view,arch_db:script_shop_management.view_website_form_shop
 msgid "Online Shop"
 msgstr "Boutique en ligne"
+
+#. module: script_shop_management
+#: model:ir.model.fields,help:script_shop_management.field_website__destination_shop_id
+msgid "Destination shop of the website: the linked local shop."
+msgstr "Boutique de destination du site web : la boutique locale liée."
+
+#. module: script_shop_management
+#: model:ir.model.fields,field_description:script_shop_management.field_website__own_warehouse_id
+msgid "Own Warehouse"
+msgstr "Entrepôt propre"
+
+#. module: script_shop_management
+#: model:ir.model.fields,help:script_shop_management.field_website__own_warehouse_id
+msgid "Warehouse created automatically for a website that is a shop of its own."
+msgstr "Entrepôt créé automatiquement pour un site web qui est une boutique à part entière."
+
+#. module: script_shop_management
+#: model:ir.model.constraint,message:script_shop_management.constraint_website_local_shop_uniq
+msgid "A local shop can only be linked to one website."
+msgstr "Une boutique locale ne peut être liée qu'à un seul site web."
+
+#. module: script_shop_management
+#. odoo-python
+#: code:addons/script_shop_management/models/website.py:0
+msgid "A website linked to a local shop must be flagged as a shop."
+msgstr "Un site web lié à une boutique locale doit être marqué comme boutique."

@@ -13,7 +13,8 @@ Manage your physical shops (Point of Sale configurations) from a single Odoo app
 * Set a destination shop on purchase orders and stock transfers.
 * Dashboard: one card per shop (and one for all shops) with a period selector, purchases, sales,
   real turnover, stock, turnover/purchases curves and best / least selling products.
-* Online shops: flag a website as a shop and link it, or not, to a local shop.
+* Online shops: flag a website as a shop and link it, or not, to a local shop (image, destination
+  shop and stock are shared when linked).
 * Dedicated Purchases, Orders and Stock lists with quick search by shop and product.
 * User / Manager security groups. English and French translations.
 """,
@@ -22,7 +23,7 @@ Manage your physical shops (Point of Sale configurations) from a single Odoo app
     'website': 'https://github.com/MaxTemat/Script_Shop_Management',
     'category': 'Sales/Point of Sale',
     'license': 'LGPL-3',
-    'depends': ['point_of_sale', 'purchase', 'stock', 'website_sale'],
+    'depends': ['point_of_sale', 'purchase', 'stock', 'website_sale', 'website_sale_stock'],
     'data': [
         'security/security.xml',
         'security/ir.model.access.csv',

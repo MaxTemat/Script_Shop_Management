@@ -1,4 +1,7 @@
-from odoo import fields, models
+import re
+
+from odoo import _, api, fields, models
+from odoo.exceptions import ValidationError
 
 
 class Website(models.Model):
@@ -8,12 +11,6 @@ class Website(models.Model):
         string="Is a Shop",
         help="Tick this box to manage this website as an online shop in Script Shop Management.",
     )
-    shop_image = fields.Image(
-        string="Shop Image",
-        max_width=512,
-        max_height=512,
-        help="Image of the online shop. Used when the website is not linked to a local shop.",
-    )
     local_shop_id = fields.Many2one(
         'pos.config',
         string="Linked Local Shop",
@@ -22,3 +19,125 @@ class Website(models.Model):
         help="Local shop whose image, destination shop and stock are shared with this website. "
              "Leave empty to manage the website as a shop of its own.",
     )
+    shop_image = fields.Image(
+        string="Shop Image",
+        max_width=512,
+        max_height=512,
+        compute='_compute_shop_image',
+        store=True,
+        readonly=False,
+        help="Image of the online shop. When the website is linked to a local shop, "
+             "the image is loaded from it.",
+    )
+    destination_shop_id = fields.Many2one(
+        'pos.config',
+        string="Destination Shop",
+        compute='_compute_destination_shop_id',
+        store=True,
+        help="Destination shop of the website: the linked local shop.",
+    )
+    own_warehouse_id = fields.Many2one(
+        'stock.warehouse',
+        string="Own Warehouse",
+        copy=False,
+        readonly=True,
+        ondelete='set null',
+        help="Warehouse created automatically for a website that is a shop of its own.",
+    )
+    warehouse_id = fields.Many2one(
+        compute='_compute_warehouse_id',
+        store=True,
+        readonly=False,
+    )
+
+    _local_shop_uniq = models.Constraint(
+        'UNIQUE(local_shop_id)',
+        "A local shop can only be linked to one website.",
+    )
+
+    # ------------------------------------------------------------------ computes
+
+    @api.depends('local_shop_id.shop_image')
+    def _compute_shop_image(self):
+        """A website linked to a local shop loads its image; otherwise it keeps its own."""
+        for website in self:
+            if website.local_shop_id:
+                website.shop_image = website.local_shop_id.shop_image
+
+    @api.depends('local_shop_id')
+    def _compute_destination_shop_id(self):
+        for website in self:
+            website.destination_shop_id = website.local_shop_id
+
+    @api.depends('local_shop_id.picking_type_id.warehouse_id', 'own_warehouse_id')
+    def _compute_warehouse_id(self):
+        """Linked: the stock of the local shop. Not linked: the website's own warehouse."""
+        for website in self:
+            if website.local_shop_id:
+                website.warehouse_id = website.local_shop_id.picking_type_id.warehouse_id
+            elif website.own_warehouse_id:
+                website.warehouse_id = website.own_warehouse_id
+
+    # ----------------------------------------------------------------- constraints
+
+    @api.constrains('local_shop_id', 'is_shop', 'company_id')
+    def _check_local_shop(self):
+        for website in self.filtered('local_shop_id'):
+            if not website.is_shop:
+                raise ValidationError(_("A website linked to a local shop must be flagged as a shop."))
+            if website.local_shop_id.company_id != website.company_id:
+                raise ValidationError(_(
+                    "The shop %(shop)s does not belong to the company %(company)s.",
+                    shop=website.local_shop_id.display_name,
+                    company=website.company_id.display_name,
+                ))
+
+    # ------------------------------------------------------- own warehouse creation
+
+    @api.model_create_multi
+    def create(self, vals_list):
+        websites = super().create(vals_list)
+        websites._ensure_own_warehouse()
+        return websites
+
+    def write(self, vals):
+        result = super().write(vals)
+        if 'is_shop' in vals or 'local_shop_id' in vals:
+            self._ensure_own_warehouse()
+        return result
+
+    def _ensure_own_warehouse(self):
+        """Create the warehouse of the websites that are shops of their own."""
+        for website in self.filtered(lambda w: w.is_shop and not w.local_shop_id and not w.own_warehouse_id):
+            warehouse = self.env['stock.warehouse'].sudo().create({
+                'name': website._get_own_warehouse_name(),
+                'code': website._get_own_warehouse_code(),
+                'company_id': website.company_id.id,
+            })
+            website.own_warehouse_id = warehouse
+
+    def _get_existing_warehouses(self):
+        self.ensure_one()
+        return self.env['stock.warehouse'].sudo().with_context(active_test=False).search([
+            ('company_id', '=', self.company_id.id),
+        ])
+
+    def _get_own_warehouse_name(self):
+        self.ensure_one()
+        taken = set(self._get_existing_warehouses().mapped('name'))
+        name, number = self.name, 1
+        while name in taken:
+            number += 1
+            name = f"{self.name} ({number})"
+        return name
+
+    def _get_own_warehouse_code(self):
+        """Short name (5 characters at most) built from the website name, unique per company."""
+        self.ensure_one()
+        taken = set(self._get_existing_warehouses().mapped('code'))
+        base = re.sub(r'[^A-Z0-9]', '', (self.name or '').upper())[:3] or 'WEB'
+        code, number = base, 1
+        while code in taken:
+            code = f"{base}{number}"[:5]
+            number += 1
+        return code

@@ -10,8 +10,12 @@
                     <field name="is_shop"/>
                     <field name="local_shop_id" invisible="not is_shop"
                            options="{'no_create': True}"/>
+                    <field name="destination_shop_id" invisible="not is_shop or not local_shop_id"/>
+                    <field name="warehouse_id" invisible="not is_shop"
+                           readonly="local_shop_id"
+                           options="{'no_create': True}"/>
                     <field name="shop_image" widget="image" class="oe_avatar"
-                           invisible="not is_shop"/>
+                           invisible="not is_shop" readonly="local_shop_id"/>
                 </group>
             </xpath>
         </field>
