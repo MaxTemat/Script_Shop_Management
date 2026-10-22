@@ -428,3 +428,13 @@ msgstr ""
 #: code:addons/script_shop_management/models/website.py:0
 msgid "A website linked to a local shop must be flagged as a shop."
 msgstr ""
+
+#. module: script_shop_management
+#: model:ir.model.fields,field_description:script_shop_management.field_product_template__shop_website_ids
+msgid "Available in Online Shops"
+msgstr ""
+
+#. module: script_shop_management
+#: model:ir.model.fields,help:script_shop_management.field_product_template__shop_website_ids
+msgid "Online shops (websites that are not linked to a local shop) where this product is sold. A website linked to a local shop shows the products of that local shop instead."
+msgstr ""

@@ -2,6 +2,7 @@ import re
 
 from odoo import _, api, fields, models
 from odoo.exceptions import ValidationError
+from odoo.fields import Domain
 
 
 class Website(models.Model):
@@ -49,6 +50,11 @@ class Website(models.Model):
         store=True,
         readonly=False,
     )
+    logo = fields.Binary(
+        compute='_compute_logo',
+        store=True,
+        readonly=False,
+    )
 
     _local_shop_uniq = models.Constraint(
         'UNIQUE(local_shop_id)',
@@ -63,6 +69,13 @@ class Website(models.Model):
         for website in self:
             if website.local_shop_id:
                 website.shop_image = website.local_shop_id.shop_image
+
+    @api.depends('local_shop_id', 'shop_image')
+    def _compute_logo(self):
+        """A website linked to a local shop takes the image of the shop as its logo."""
+        for website in self:
+            if website.local_shop_id and website.shop_image:
+                website.logo = website.shop_image
 
     @api.depends('local_shop_id')
     def _compute_destination_shop_id(self):
@@ -97,6 +110,7 @@ class Website(models.Model):
     @api.model_create_multi
     def create(self, vals_list):
         websites = super().create(vals_list)
+        websites.filtered('local_shop_id')._compute_logo()  # the default logo is given at creation
         websites._ensure_own_warehouse()
         return websites
 
@@ -141,3 +155,24 @@ class Website(models.Model):
             code = f"{base}{number}"[:5]
             number += 1
         return code
+
+    # ------------------------------------------------------------ product visibility
+
+    def _get_shop_products_domain(self):
+        """Products of the shop of the website.
+
+        A website linked to a local shop shows the products whose destination shop is that local shop.
+        A website that is a shop of its own shows the products assigned to it.
+        """
+        self.ensure_one()
+        if self.local_shop_id:
+            return Domain('shop_ids', 'in', self.local_shop_id.ids)
+        return Domain('shop_website_ids', 'in', self.ids)
+
+    def sale_product_domain(self):
+        """The catalog of a shop website only lists the products of that shop."""
+        domain = super().sale_product_domain()
+        website = self.get_current_website()
+        if website.is_shop:
+            domain = Domain.AND([domain, website._get_shop_products_domain()])
+        return domain

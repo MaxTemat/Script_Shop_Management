@@ -429,3 +429,13 @@ msgstr "Une boutique locale ne peut être liée qu'à un seul site web."
 #: code:addons/script_shop_management/models/website.py:0
 msgid "A website linked to a local shop must be flagged as a shop."
 msgstr "Un site web lié à une boutique locale doit être marqué comme boutique."
+
+#. module: script_shop_management
+#: model:ir.model.fields,field_description:script_shop_management.field_product_template__shop_website_ids
+msgid "Available in Online Shops"
+msgstr "Disponible dans les boutiques en ligne"
+
+#. module: script_shop_management
+#: model:ir.model.fields,help:script_shop_management.field_product_template__shop_website_ids
+msgid "Online shops (websites that are not linked to a local shop) where this product is sold. A website linked to a local shop shows the products of that local shop instead."
+msgstr "Boutiques en ligne (sites web non liés à une boutique locale) où ce produit est vendu. Un site web lié à une boutique locale affiche à la place les produits de cette boutique locale."

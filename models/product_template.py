@@ -15,6 +15,16 @@ class ProductTemplate(models.Model):
         domain="[('is_shop', '=', True)]",
         help="Shops where this product is sold.",
     )
+    shop_website_ids = fields.Many2many(
+        'website',
+        'product_template_shop_website_rel',
+        'product_tmpl_id',
+        'website_id',
+        string="Available in Online Shops",
+        domain="[('is_shop', '=', True), ('local_shop_id', '=', False)]",
+        help="Online shops (websites that are not linked to a local shop) where this product is sold. "
+             "A website linked to a local shop shows the products of that local shop instead.",
+    )
 
     @api.model
     def _load_pos_data_domain(self, data, config):
@@ -46,3 +56,11 @@ class ProductTemplate(models.Model):
                 if config not in template.shop_ids:
                     unrelevant_ids.add(template.id)
         return list(unrelevant_ids)
+
+    def can_access_from_current_website(self, website_id=False):
+        """On the website of a shop, only the products of that shop can be reached."""
+        can_access = super().can_access_from_current_website(website_id)
+        website = self.env['website'].get_current_website()
+        if can_access and website.is_shop:
+            can_access = len(self.filtered_domain(website._get_shop_products_domain())) == len(self)
+        return can_access

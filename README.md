@@ -87,6 +87,22 @@ Le module respecte le **multi-société** : chaque société ne voit que ses pro
 
 Développé par **Script Consulting**, consultant IT Odoo, dans le cadre de la série vidéo **« Boutique Locale »**.
 
+## Boutiques en ligne (saison 2)
+
+Le module s'étend aux sites web Odoo (dépendances `website_sale` et `website_sale_stock`). Un site web marqué « Est une boutique » devient une boutique en ligne, liée ou non à une boutique locale :
+
+- **Est une boutique** : marque le site web comme boutique en ligne.
+- **Boutique locale liée** : boutique locale dont le site reprend les données (facultatif).
+- **Image de la boutique** : image du site quand il n'est pas lié.
+
+Quand le site est lié, il reprend l'image, la boutique de destination et l'entrepôt de la boutique locale (champs en lecture seule). Une boutique locale ne peut être liée qu'à un seul site. Non lié, le site a son propre entrepôt, créé automatiquement.
+
+**Stock partagé** : les commandes en ligne sortent de l'entrepôt du site (celui de la boutique locale si le site est lié), et la disponibilité affichée sur le site vient du stock de cet entrepôt. Un panier ouvert suit le changement d'entrepôt du site ; une commande confirmée garde son entrepôt.
+
+**Visibilité des produits** : un site boutique n'affiche que ses produits (catalogue, recherche, accès direct par adresse). Un site lié affiche les produits dont la boutique de destination est sa boutique locale (champ « Disponible dans les boutiques »). Un site non lié affiche les produits assignés au site (champ « Disponible dans les boutiques en ligne »). Un produit sans boutique n'apparaît sur aucun site boutique ; les sites qui ne sont pas des boutiques ne changent pas.
+
+Ces champs se trouvent dans **Site web › Configuration › Sites web**. L'étape suivante (tableau de bord) arrive au fil des épisodes.
+
 ## Licence
 
 Distribué sous licence [LGPL-3](https://www.gnu.org/licenses/lgpl-3.0.html).
