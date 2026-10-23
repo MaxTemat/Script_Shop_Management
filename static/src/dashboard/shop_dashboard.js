@@ -9,6 +9,8 @@ import { standardActionServiceProps } from "@web/webclient/actions/action_servic
 const { DateTime } = luxon;
 
 const PALETTE = ["#6366f1", "#10b981", "#f59e0b", "#ec4899", "#0ea5e9", "#8b5cf6", "#ef4444"];
+const LOCAL_COLOR = PALETTE[0];
+const ONLINE_COLOR = PALETTE[4];
 
 export class ShopDashboard extends Component {
     static template = "script_shop_management.ShopDashboard";
@@ -36,6 +38,7 @@ export class ShopDashboard extends Component {
         this.timelineRef = useRef("timelineChart");
         this.shareRef = useRef("shareChart");
         this.topRef = useRef("topChart");
+        this.channelRef = useRef("channelChart");
         this.charts = [];
 
         onWillStart(async () => {
@@ -97,6 +100,7 @@ export class ShopDashboard extends Component {
                 this.state.shop.id,
                 this.state.dateFrom,
                 this.state.dateTo,
+                this.state.shop.website_id,
             ]);
         } finally {
             this.state.loading = false;
@@ -107,13 +111,26 @@ export class ShopDashboard extends Component {
         return formatMonetary(value, { currencyId: this.state.data.currency_id });
     }
 
+    /** The "all shops" card: no single shop nor online shop selected. */
+    get isAllShops() {
+        return !this.state.shop.id && !this.state.shop.website_id;
+    }
+
+    /** The online figures are shown for the all shops card and for every shop with an online shop. */
+    get showOnline() {
+        return this.isAllShops || this.state.shop.online;
+    }
+
     get shareTitle() {
-        return this.state.shop.id ? _t("Best sellers share") : _t("Turnover by shop");
+        return this.isAllShops ? _t("Turnover by shop") : _t("Best sellers share");
     }
 
     /** Open the matching list of the module, filtered on the selected shop. */
     openList(xmlid, searchField) {
         const shop = this.state.shop;
+        if (shop.website_id) {
+            return; // the lists are filtered on the local shops, not on an online shop
+        }
         this.actionService.doAction(`script_shop_management.${xmlid}`, {
             additionalContext: shop.id ? { [`search_default_${searchField}`]: shop.id } : {},
         });
@@ -126,6 +143,20 @@ export class ShopDashboard extends Component {
             chart.destroy();
         }
         this.charts = [];
+    }
+
+    lineDataset(label, values, color, background) {
+        return {
+            label,
+            data: values,
+            borderColor: color,
+            backgroundColor: background,
+            fill: true,
+            tension: 0.4,
+            borderWidth: 3,
+            pointRadius: 0,
+            pointHoverRadius: 6,
+        };
     }
 
     renderCharts() {
@@ -154,28 +185,11 @@ export class ShopDashboard extends Component {
                 data: {
                     labels: data.timeline.labels,
                     datasets: [
-                        {
-                            label: _t("Real turnover"),
-                            data: data.timeline.sales,
-                            borderColor: PALETTE[0],
-                            backgroundColor: gradient(PALETTE[0]),
-                            fill: true,
-                            tension: 0.4,
-                            borderWidth: 3,
-                            pointRadius: 0,
-                            pointHoverRadius: 6,
-                        },
-                        {
-                            label: _t("Purchases"),
-                            data: data.timeline.purchases,
-                            borderColor: PALETTE[2],
-                            backgroundColor: gradient(PALETTE[2]),
-                            fill: true,
-                            tension: 0.4,
-                            borderWidth: 3,
-                            pointRadius: 0,
-                            pointHoverRadius: 6,
-                        },
+                        this.lineDataset(_t("Local turnover"), data.timeline.sales, LOCAL_COLOR, gradient(LOCAL_COLOR)),
+                        ...(this.showOnline
+                            ? [this.lineDataset(_t("Online turnover"), data.timeline.online, ONLINE_COLOR, gradient(ONLINE_COLOR))]
+                            : []),
+                        this.lineDataset(_t("Purchases"), data.timeline.purchases, PALETTE[2], gradient(PALETTE[2])),
                     ],
                 },
                 options: {
@@ -198,9 +212,9 @@ export class ShopDashboard extends Component {
         );
 
         // Doughnut: turnover by shop (all shops) or share of the best sellers (one shop)
-        const shareItems = this.state.shop.id
-            ? data.top_products.map((p) => ({ name: p.name, value: p.qty }))
-            : data.by_shop.map((s) => ({ name: s.name, value: s.amount }));
+        const shareItems = this.isAllShops
+            ? data.by_shop.map((s) => ({ name: s.name, value: s.amount }))
+            : data.top_products.map((p) => ({ name: p.name, value: p.qty }));
         this.charts.push(
             new Chart(this.shareRef.el, {
                 type: "doughnut",
@@ -223,15 +237,48 @@ export class ShopDashboard extends Component {
                         tooltip: {
                             callbacks: {
                                 label: (item) =>
-                                    this.state.shop.id
-                                        ? `${item.label}: ${item.parsed}`
-                                        : `${item.label}: ${money(item.parsed)}`,
+                                    this.isAllShops
+                                        ? `${item.label}: ${money(item.parsed)}`
+                                        : `${item.label}: ${item.parsed}`,
                             },
                         },
                     },
                 },
             })
         );
+
+        // Online against local: share of the real turnover
+        if (this.channelRef.el) {
+            this.charts.push(
+                new Chart(this.channelRef.el, {
+                    type: "doughnut",
+                    data: {
+                        labels: [_t("Local"), _t("Online")],
+                        datasets: [
+                            {
+                                data: [
+                                    data.channels.local.real_revenue,
+                                    data.channels.online.real_revenue,
+                                ],
+                                backgroundColor: [LOCAL_COLOR, ONLINE_COLOR],
+                                borderWidth: 0,
+                                hoverOffset: 8,
+                            },
+                        ],
+                    },
+                    options: {
+                        maintainAspectRatio: false,
+                        cutout: "68%",
+                        plugins: {
+                            legend: { position: "bottom", labels: { usePointStyle: true } },
+                            tooltip: {
+                                callbacks: { label: (item) => `${item.label}: ${money(item.parsed)}` },
+                            },
+                        },
+                    },
+                })
+            );
+        }
 
         // Best sellers: rounded horizontal bars
         this.charts.push(

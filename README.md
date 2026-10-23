@@ -101,7 +101,7 @@ Quand le site est lié, il reprend l'image, la boutique de destination et l'entr
 
 **Visibilité des produits** : un site boutique n'affiche que ses produits (catalogue, recherche, accès direct par adresse). Un site lié affiche les produits dont la boutique de destination est sa boutique locale (champ « Disponible dans les boutiques »). Un site non lié affiche les produits assignés au site (champ « Disponible dans les boutiques en ligne »). Un produit sans boutique n'apparaît sur aucun site boutique ; les sites qui ne sont pas des boutiques ne changent pas.
 
-Ces champs se trouvent dans **Site web › Configuration › Sites web**. L'étape suivante (tableau de bord) arrive au fil des épisodes.
+Ces champs se trouvent dans **Site web › Configuration › Sites web**. **Tableau de bord** : les boutiques en ligne apparaissent dans le tableau de bord. Une boutique locale liée à un site affiche un seul tableau de bord, avec les ventes en ligne comparées aux ventes locales (commandes, montant, chiffre d'affaires réel, part). Un site non lié a son propre tableau de bord : commandes, montant, chiffre d'affaires réel, stock de son entrepôt, achats reçus dans son entrepôt et produits les plus vendus. La carte « Toutes les boutiques » réunit l'ensemble.
 
 ## Licence
 

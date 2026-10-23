@@ -114,8 +114,10 @@ msgid "Status"
 msgstr "Statut"
 
 #. module: script_shop_management
+#. odoo-javascript
 #: model:ir.actions.act_window,name:script_shop_management.shop_pos_order_action
 #: model:ir.ui.menu,name:script_shop_management.menu_shop_orders
+#: code:addons/script_shop_management/static/src/dashboard/shop_dashboard.xml:0
 msgid "Orders"
 msgstr "Commandes"
 
@@ -439,3 +441,59 @@ msgstr "Disponible dans les boutiques en ligne"
 #: model:ir.model.fields,help:script_shop_management.field_product_template__shop_website_ids
 msgid "Online shops (websites that are not linked to a local shop) where this product is sold. A website linked to a local shop shows the products of that local shop instead."
 msgstr "Boutiques en ligne (sites web non liés à une boutique locale) où ce produit est vendu. Un site web lié à une boutique locale affiche à la place les produits de cette boutique locale."
+
+#. module: script_shop_management
+#. odoo-javascript
+#: code:addons/script_shop_management/static/src/dashboard/shop_dashboard.js:0
+msgid "Local turnover"
+msgstr "CA local"
+
+#. module: script_shop_management
+#. odoo-javascript
+#: code:addons/script_shop_management/static/src/dashboard/shop_dashboard.js:0
+msgid "Online turnover"
+msgstr "CA en ligne"
+
+#. module: script_shop_management
+#. odoo-javascript
+#: code:addons/script_shop_management/static/src/dashboard/shop_dashboard.js:0
+#: code:addons/script_shop_management/static/src/dashboard/shop_dashboard.xml:0
+msgid "Local"
+msgstr "Local"
+
+#. module: script_shop_management
+#. odoo-javascript
+#: code:addons/script_shop_management/static/src/dashboard/shop_dashboard.js:0
+#: code:addons/script_shop_management/static/src/dashboard/shop_dashboard.xml:0
+msgid "Online"
+msgstr "En ligne"
+
+#. module: script_shop_management
+#. odoo-javascript
+#: code:addons/script_shop_management/static/src/dashboard/shop_dashboard.xml:0
+msgid "Online shop"
+msgstr "Boutique en ligne"
+
+#. module: script_shop_management
+#. odoo-javascript
+#: code:addons/script_shop_management/static/src/dashboard/shop_dashboard.xml:0
+msgid "Online sales"
+msgstr "Ventes en ligne"
+
+#. module: script_shop_management
+#. odoo-javascript
+#: code:addons/script_shop_management/static/src/dashboard/shop_dashboard.xml:0
+msgid "% of the turnover"
+msgstr "% du chiffre d'affaires"
+
+#. module: script_shop_management
+#. odoo-javascript
+#: code:addons/script_shop_management/static/src/dashboard/shop_dashboard.xml:0
+msgid "Online against local"
+msgstr "En ligne contre local"
+
+#. module: script_shop_management
+#. odoo-javascript
+#: code:addons/script_shop_management/static/src/dashboard/shop_dashboard.xml:0
+msgid "Share"
+msgstr "Part"

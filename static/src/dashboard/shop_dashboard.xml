@@ -11,6 +11,9 @@
                         <div class="o_shop_card" role="button" t-on-click="() => this.openShop(shop)">
                             <div class="o_shop_card_image">
                                 <img t-att-src="shop.image_url" t-att-alt="shop.name"/>
+                                <span t-if="shop.online" class="o_shop_card_badge" title="Online shop">
+                                    <i class="fa fa-globe"/>
+                                </span>
                             </div>
                             <div class="o_shop_card_body">
                                 <h4 class="mb-1" t-esc="shop.name"/>
@@ -85,6 +88,17 @@
                                 <div class="o_shop_kpi_hint">Tax excluded, net of refunds</div>
                             </div>
                         </div>
+                        <div t-if="showOnline" class="o_shop_kpi o_shop_kpi_online">
+                            <div class="o_shop_kpi_icon"><i class="fa fa-globe"/></div>
+                            <div>
+                                <div class="o_shop_kpi_label">Online sales</div>
+                                <div class="o_shop_kpi_value" t-esc="money(state.data.channels.online.real_revenue)"/>
+                                <div class="o_shop_kpi_hint">
+                                    <t t-esc="state.data.channels.online.count"/> order(s),
+                                    <t t-esc="state.data.channels.online_share"/>% of the turnover
+                                </div>
+                            </div>
+                        </div>
                         <div class="o_shop_kpi o_shop_kpi_stock" role="button"
                              t-on-click="() => this.openList('shop_stock_picking_action', 'shop_id')">
                             <div class="o_shop_kpi_icon"><i class="fa fa-cubes"/></div>
@@ -107,6 +121,43 @@
                         <div class="o_shop_panel">
                             <div class="o_shop_panel_title" t-esc="shareTitle"/>
                             <div class="o_shop_chart"><canvas t-ref="shareChart"/></div>
+                        </div>
+                    </div>
+
+                    <div t-if="showOnline" class="o_shop_grid mb-4">
+                        <div class="o_shop_panel o_shop_panel_wide">
+                            <div class="o_shop_panel_title">Online against local</div>
+                            <table class="o_shop_channels table mb-0">
+                                <thead>
+                                    <tr>
+                                        <th/>
+                                        <th class="text-end">Orders</th>
+                                        <th class="text-end">Sales</th>
+                                        <th class="text-end">Real turnover</th>
+                                        <th class="text-end">Share</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><span class="o_shop_dot o_shop_dot_local"/> Local</td>
+                                        <td class="text-end" t-esc="state.data.channels.local.count"/>
+                                        <td class="text-end" t-esc="money(state.data.channels.local.amount)"/>
+                                        <td class="text-end" t-esc="money(state.data.channels.local.real_revenue)"/>
+                                        <td class="text-end"><t t-esc="state.data.channels.local_share"/>%</td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="o_shop_dot o_shop_dot_online"/> Online</td>
+                                        <td class="text-end" t-esc="state.data.channels.online.count"/>
+                                        <td class="text-end" t-esc="money(state.data.channels.online.amount)"/>
+                                        <td class="text-end" t-esc="money(state.data.channels.online.real_revenue)"/>
+                                        <td class="text-end"><t t-esc="state.data.channels.online_share"/>%</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="o_shop_panel">
+                            <div class="o_shop_panel_title">Online against local</div>
+                            <div class="o_shop_chart o_shop_chart_small"><canvas t-ref="channelChart"/></div>
                         </div>
                     </div>
 
