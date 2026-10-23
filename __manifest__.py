@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 {
     'name': 'Script Shop Management',
-    'version': '19.0.2.0.0',
+    'version': '19.0.2.1.0',
     'summary': "Manage your local shops from one place: purchases, sales, stock and a modern dashboard",
     'description': """
 Script Shop Management
@@ -32,7 +32,8 @@ Manage your physical shops (Point of Sale configurations) from a single Odoo app
         'views/purchase_order_views.xml',
         'views/stock_picking_views.xml',
         'views/purchase_order_list_views.xml',
-        'views/pos_order_list_views.xml',
+        'views/sale_order_views.xml',
+        'views/shop_order_views.xml',
         'views/stock_picking_list_views.xml',
         'views/website_views.xml',
         'views/shop_dashboard_views.xml',

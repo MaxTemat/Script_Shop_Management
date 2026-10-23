@@ -126,14 +126,25 @@ export class ShopDashboard extends Component {
     }
 
     /** Open the matching list of the module, filtered on the selected shop. */
-    openList(xmlid, searchField) {
+    /**
+     * Open a list of the module filtered on the selected shop.
+     * `filters` adds search filters, like {filter_online: 1} for the online orders only.
+     */
+    openList(xmlid, searchField, websiteField, filters = {}) {
         const shop = this.state.shop;
+        let context = {};
         if (shop.website_id) {
-            return; // the lists are filtered on the local shops, not on an online shop
+            if (!websiteField) {
+                return; // this list cannot be filtered on an online shop
+            }
+            context = { [`search_default_${websiteField}`]: shop.website_id };
+        } else if (shop.id) {
+            context = { [`search_default_${searchField}`]: shop.id };
         }
-        this.actionService.doAction(`script_shop_management.${xmlid}`, {
-            additionalContext: shop.id ? { [`search_default_${searchField}`]: shop.id } : {},
-        });
+        for (const [name, value] of Object.entries(filters)) {
+            context[`search_default_${name}`] = value;
+        }
+        this.actionService.doAction(`script_shop_management.${xmlid}`, { additionalContext: context });
     }
 
     // ---------------------------------------------------------------------- charts

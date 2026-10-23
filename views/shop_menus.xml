@@ -9,7 +9,7 @@
     <menuitem id="menu_shop_purchase" name="Purchases" parent="menu_shop_root"
               action="shop_purchase_order_action" sequence="20"/>
     <menuitem id="menu_shop_orders" name="Orders" parent="menu_shop_root"
-              action="shop_pos_order_action" sequence="30"/>
+              action="shop_order_action" sequence="30"/>
     <menuitem id="menu_shop_stock" name="Stock" parent="menu_shop_root"
               action="shop_stock_picking_action" sequence="40"/>
 </odoo>

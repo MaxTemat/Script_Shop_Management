@@ -272,6 +272,10 @@ $shop-sky: #0ea5e9;
     }
 
     .o_shop_channels {
+        tbody tr[role="button"]:hover {
+            background: rgba(99, 102, 241, 0.08);
+        }
+
         .o_shop_dot {
             display: inline-block;
             width: 10px;

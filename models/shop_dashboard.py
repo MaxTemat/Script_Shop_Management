@@ -225,8 +225,8 @@ class ShopDashboard(models.AbstractModel):
             ('state', '=', 'done'),
             ('date_done', '>=', start),
             ('date_done', '<', end),
+            ('picking_type_code', '=', 'incoming'),  # receipts only, not the deliveries to the customers
             '|', ('shop_id', 'in', shops.ids),
-            '&', ('picking_type_code', '=', 'incoming'),
             ('picking_type_id.warehouse_id', 'in', self._get_own_warehouses(websites).ids),
         ])
         return {

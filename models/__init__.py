@@ -7,3 +7,4 @@ from . import sale_order
 from . import shop_dashboard
 from . import stock_picking
 from . import website
+from . import shop_order

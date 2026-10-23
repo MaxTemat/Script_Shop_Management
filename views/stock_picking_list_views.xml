@@ -8,6 +8,7 @@
             <list string="Transfers to Shops" create="0">
                 <field name="name" string="Reference"/>
                 <field name="shop_id"/>
+                <field name="shop_website_id" optional="show"/>
                 <field name="partner_id" optional="show"/>
                 <field name="location_id" optional="hide"/>
                 <field name="location_dest_id" optional="hide"/>
@@ -26,12 +27,14 @@
             <search string="Search Transfers">
                 <field name="name" string="Reference"/>
                 <field name="shop_id"/>
+                <field name="shop_website_id"/>
                 <field name="product_id" string="Product"/>
                 <field name="origin"/>
                 <filter name="filter_ready" string="Ready" domain="[('state', '=', 'assigned')]"/>
                 <filter name="filter_done" string="Done" domain="[('state', '=', 'done')]"/>
                 <group>
                     <filter name="group_shop" string="Shop" context="{'group_by': 'shop_id'}"/>
+                    <filter name="group_online_shop" string="Online Shop" context="{'group_by': 'shop_website_id'}"/>
                     <filter name="group_state" string="Status" context="{'group_by': 'state'}"/>
                 </group>
             </search>
@@ -42,7 +45,7 @@
         <field name="name">Stock</field>
         <field name="res_model">stock.picking</field>
         <field name="view_mode">list,form</field>
-        <field name="domain">[('shop_id', '!=', False)]</field>
+        <field name="domain">['|', ('shop_id', '!=', False), ('shop_website_id', '!=', False)]</field>
         <field name="search_view_id" ref="shop_stock_picking_view_search"/>
     </record>
     <record id="shop_stock_picking_action_list" model="ir.actions.act_window.view">

@@ -44,6 +44,8 @@ msgstr ""
 #: model:ir.model.fields,field_description:script_shop_management.field_purchase_order__shop_id
 #: model:ir.model.fields,field_description:script_shop_management.field_stock_picking__shop_id
 #: model:ir.model.fields,field_description:script_shop_management.field_website__destination_shop_id
+#: model:ir.model.fields,field_description:script_shop_management.field_sale_order__shop_id
+#: model:ir.model.fields,field_description:script_shop_management.field_shop_order__shop_id
 msgid "Destination Shop"
 msgstr ""
 
@@ -54,69 +56,35 @@ msgstr ""
 
 #. module: script_shop_management
 #: model:ir.model.fields,help:script_shop_management.field_stock_picking__shop_id
-msgid "Shop this transfer is sent to."
+msgid "Shop this transfer is for: the destination of a receipt, the shop of a delivery."
 msgstr ""
 
 #. module: script_shop_management
-#: model_terms:ir.ui.view,arch_db:script_shop_management.shop_pos_order_view_list
-msgid "Shop Orders"
-msgstr ""
-
-#. module: script_shop_management
-#: model_terms:ir.ui.view,arch_db:script_shop_management.shop_pos_order_view_list
-#: model_terms:ir.ui.view,arch_db:script_shop_management.shop_pos_order_view_search
-msgid "Order"
-msgstr ""
-
-#. module: script_shop_management
-#: model_terms:ir.ui.view,arch_db:script_shop_management.shop_pos_order_view_list
-#: model_terms:ir.ui.view,arch_db:script_shop_management.shop_pos_order_view_search
-msgid "Receipt"
-msgstr ""
-
-#. module: script_shop_management
-#: model_terms:ir.ui.view,arch_db:script_shop_management.shop_pos_order_view_list
-#: model_terms:ir.ui.view,arch_db:script_shop_management.shop_pos_order_view_search
-#: model_terms:ir.ui.view,arch_db:script_shop_management.shop_pos_order_view_search
 #: model_terms:ir.ui.view,arch_db:script_shop_management.shop_purchase_order_view_search
 #: model_terms:ir.ui.view,arch_db:script_shop_management.shop_stock_picking_view_search
+#: model_terms:ir.ui.view,arch_db:script_shop_management.shop_order_view_search
 msgid "Shop"
 msgstr ""
 
 #. module: script_shop_management
-#: model_terms:ir.ui.view,arch_db:script_shop_management.shop_pos_order_view_search
-msgid "Search Orders"
-msgstr ""
-
-#. module: script_shop_management
-#: model_terms:ir.ui.view,arch_db:script_shop_management.shop_pos_order_view_search
 #: model_terms:ir.ui.view,arch_db:script_shop_management.shop_purchase_order_view_search
 #: model_terms:ir.ui.view,arch_db:script_shop_management.shop_stock_picking_view_search
 msgid "Product"
 msgstr ""
 
 #. module: script_shop_management
-#: model_terms:ir.ui.view,arch_db:script_shop_management.shop_pos_order_view_search
-msgid "Paid"
-msgstr ""
-
-#. module: script_shop_management
-#: model_terms:ir.ui.view,arch_db:script_shop_management.shop_pos_order_view_search
-msgid "Day"
-msgstr ""
-
-#. module: script_shop_management
-#: model_terms:ir.ui.view,arch_db:script_shop_management.shop_pos_order_view_search
 #: model_terms:ir.ui.view,arch_db:script_shop_management.shop_purchase_order_view_search
 #: model_terms:ir.ui.view,arch_db:script_shop_management.shop_stock_picking_view_search
+#: model:ir.model.fields,field_description:script_shop_management.field_shop_order__state
+#: model_terms:ir.ui.view,arch_db:script_shop_management.shop_order_view_search
 msgid "Status"
 msgstr ""
 
 #. module: script_shop_management
 #. odoo-javascript
-#: model:ir.actions.act_window,name:script_shop_management.shop_pos_order_action
 #: model:ir.ui.menu,name:script_shop_management.menu_shop_orders
 #: code:addons/script_shop_management/static/src/dashboard/shop_dashboard.xml:0
+#: model:ir.actions.act_window,name:script_shop_management.shop_order_action
 msgid "Orders"
 msgstr ""
 
@@ -130,6 +98,7 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:script_shop_management.shop_purchase_order_view_search
 #: model_terms:ir.ui.view,arch_db:script_shop_management.shop_stock_picking_view_list
 #: model_terms:ir.ui.view,arch_db:script_shop_management.shop_stock_picking_view_search
+#: model:ir.model.fields,field_description:script_shop_management.field_shop_order__name
 msgid "Reference"
 msgstr ""
 
@@ -402,6 +371,11 @@ msgstr ""
 
 #. module: script_shop_management
 #: model_terms:ir.ui.view,arch_db:script_shop_management.view_website_form_shop
+#: model:ir.model.fields,field_description:script_shop_management.field_sale_order__shop_website_id
+#: model:ir.model.fields,field_description:script_shop_management.field_stock_picking__shop_website_id
+#: model:ir.model.fields,field_description:script_shop_management.field_shop_order__shop_website_id
+#: model_terms:ir.ui.view,arch_db:script_shop_management.shop_order_view_search
+#: model_terms:ir.ui.view,arch_db:script_shop_management.shop_stock_picking_view_search
 msgid "Online Shop"
 msgstr ""
 
@@ -457,6 +431,8 @@ msgstr ""
 #. odoo-javascript
 #: code:addons/script_shop_management/static/src/dashboard/shop_dashboard.js:0
 #: code:addons/script_shop_management/static/src/dashboard/shop_dashboard.xml:0
+#: model:ir.model.fields.selection,name:script_shop_management.selection__shop_order__channel__local
+#: model_terms:ir.ui.view,arch_db:script_shop_management.shop_order_view_search
 msgid "Local"
 msgstr ""
 
@@ -464,6 +440,8 @@ msgstr ""
 #. odoo-javascript
 #: code:addons/script_shop_management/static/src/dashboard/shop_dashboard.js:0
 #: code:addons/script_shop_management/static/src/dashboard/shop_dashboard.xml:0
+#: model:ir.model.fields.selection,name:script_shop_management.selection__shop_order__channel__online
+#: model_terms:ir.ui.view,arch_db:script_shop_management.shop_order_view_search
 msgid "Online"
 msgstr ""
 
@@ -495,4 +473,61 @@ msgstr ""
 #. odoo-javascript
 #: code:addons/script_shop_management/static/src/dashboard/shop_dashboard.xml:0
 msgid "Share"
+msgstr ""
+
+#. module: script_shop_management
+#: model:ir.model.fields,help:script_shop_management.field_sale_order__shop_id
+msgid "Shop of the order: for an online order, the local shop linked to the website."
+msgstr ""
+
+#. module: script_shop_management
+#: model:ir.model.fields,help:script_shop_management.field_sale_order__shop_website_id
+msgid "Shop of the order when it comes from a website that is a shop of its own."
+msgstr ""
+
+#. module: script_shop_management
+#: model:ir.model.fields,help:script_shop_management.field_stock_picking__shop_website_id
+msgid "Online shop of its own this transfer is for."
+msgstr ""
+
+#. module: script_shop_management
+#: model:ir.model,name:script_shop_management.model_shop_order
+msgid "Shop Order"
+msgstr ""
+
+#. module: script_shop_management
+#: model:ir.model.fields,field_description:script_shop_management.field_shop_order__date_order
+msgid "Order Date"
+msgstr ""
+
+#. module: script_shop_management
+#: model:ir.model.fields,field_description:script_shop_management.field_shop_order__channel
+#: model_terms:ir.ui.view,arch_db:script_shop_management.shop_order_view_search
+msgid "Channel"
+msgstr ""
+
+#. module: script_shop_management
+#: model:ir.model.fields,field_description:script_shop_management.field_shop_order__partner_id
+msgid "Customer"
+msgstr ""
+
+#. module: script_shop_management
+#: model:ir.model.fields,field_description:script_shop_management.field_shop_order__amount_untaxed
+#: model_terms:ir.ui.view,arch_db:script_shop_management.shop_order_view_list
+msgid "Untaxed Amount"
+msgstr ""
+
+#. module: script_shop_management
+#: model:ir.model.fields.selection,name:script_shop_management.selection__shop_order__state__confirmed
+msgid "Validated"
+msgstr ""
+
+#. module: script_shop_management
+#: model:ir.model.fields.selection,name:script_shop_management.selection__shop_order__state__done
+msgid "Completed"
+msgstr ""
+
+#. module: script_shop_management
+#: model:ir.model.fields.selection,name:script_shop_management.selection__shop_order__state__cancel
+msgid "Cancelled"
 msgstr ""

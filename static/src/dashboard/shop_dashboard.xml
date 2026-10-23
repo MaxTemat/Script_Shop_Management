@@ -69,7 +69,7 @@
                             </div>
                         </div>
                         <div class="o_shop_kpi o_shop_kpi_sales" role="button"
-                             t-on-click="() => this.openList('shop_pos_order_action', 'config_id')">
+                             t-on-click="() => this.openList('shop_order_action', 'shop_id', 'shop_website_id')">
                             <div class="o_shop_kpi_icon"><i class="fa fa-shopping-cart"/></div>
                             <div>
                                 <div class="o_shop_kpi_label">Sales</div>
@@ -88,7 +88,8 @@
                                 <div class="o_shop_kpi_hint">Tax excluded, net of refunds</div>
                             </div>
                         </div>
-                        <div t-if="showOnline" class="o_shop_kpi o_shop_kpi_online">
+                        <div t-if="showOnline" class="o_shop_kpi o_shop_kpi_online" role="button"
+                             t-on-click="() => this.openList('shop_order_action', 'shop_id', 'shop_website_id', { filter_online: 1 })">
                             <div class="o_shop_kpi_icon"><i class="fa fa-globe"/></div>
                             <div>
                                 <div class="o_shop_kpi_label">Online sales</div>
@@ -100,7 +101,7 @@
                             </div>
                         </div>
                         <div class="o_shop_kpi o_shop_kpi_stock" role="button"
-                             t-on-click="() => this.openList('shop_stock_picking_action', 'shop_id')">
+                             t-on-click="() => this.openList('shop_stock_picking_action', 'shop_id', 'shop_website_id')">
                             <div class="o_shop_kpi_icon"><i class="fa fa-cubes"/></div>
                             <div>
                                 <div class="o_shop_kpi_label">Stock</div>
@@ -138,14 +139,16 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
+                                    <tr role="button"
+                                        t-on-click="() => this.openList('shop_order_action', 'shop_id', 'shop_website_id', { filter_local: 1 })">
                                         <td><span class="o_shop_dot o_shop_dot_local"/> Local</td>
                                         <td class="text-end" t-esc="state.data.channels.local.count"/>
                                         <td class="text-end" t-esc="money(state.data.channels.local.amount)"/>
                                         <td class="text-end" t-esc="money(state.data.channels.local.real_revenue)"/>
                                         <td class="text-end"><t t-esc="state.data.channels.local_share"/>%</td>
                                     </tr>
-                                    <tr>
+                                    <tr role="button"
+                                        t-on-click="() => this.openList('shop_order_action', 'shop_id', 'shop_website_id', { filter_online: 1 })">
                                         <td><span class="o_shop_dot o_shop_dot_online"/> Online</td>
                                         <td class="text-end" t-esc="state.data.channels.online.count"/>
                                         <td class="text-end" t-esc="money(state.data.channels.online.amount)"/>
