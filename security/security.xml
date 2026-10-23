@@ -6,7 +6,8 @@
         <field name="category_id" ref="base.module_category_sales"/>
     </record>
 
-    <!-- User: sees the dashboard and the purchases, orders and stock of the shops -->
+    <!-- User: sees the dashboard and the purchases, orders and stock of the shops (read access to the
+         online orders, which are opened from the Orders menu, comes with the sales "all documents" group) -->
     <record id="group_shop_user" model="res.groups">
         <field name="name">User</field>
         <field name="sequence">10</field>
@@ -15,10 +16,11 @@
             (4, ref('point_of_sale.group_pos_user')),
             (4, ref('purchase.group_purchase_user')),
             (4, ref('stock.group_stock_user')),
+            (4, ref('sales_team.group_sale_salesman_all_leads')),
         ]"/>
     </record>
 
-    <!-- Manager: also sets up the shops (shop flag, image, products of each shop) -->
+    <!-- Manager: also sets up the shops (shop flag, image, products of each shop, online shops) -->
     <record id="group_shop_manager" model="res.groups">
         <field name="name">Manager</field>
         <field name="sequence">20</field>

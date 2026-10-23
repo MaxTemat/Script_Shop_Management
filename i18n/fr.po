@@ -532,3 +532,10 @@ msgstr "Terminée"
 #: model:ir.model.fields.selection,name:script_shop_management.selection__shop_order__state__cancel
 msgid "Cancelled"
 msgstr "Annulée"
+
+#. module: script_shop_management
+#: model:ir.actions.act_window,name:script_shop_management.shop_website_action
+#: model:ir.ui.menu,name:script_shop_management.menu_shop_websites
+#: model_terms:ir.ui.view,arch_db:script_shop_management.shop_website_view_list
+msgid "Online Shops"
+msgstr "Boutiques en ligne"

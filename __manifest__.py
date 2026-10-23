@@ -36,6 +36,7 @@ Manage your physical shops (Point of Sale configurations) from a single Odoo app
         'views/shop_order_views.xml',
         'views/stock_picking_list_views.xml',
         'views/website_views.xml',
+        'views/website_shop_views.xml',
         'views/shop_dashboard_views.xml',
         'views/shop_menus.xml',
     ],
