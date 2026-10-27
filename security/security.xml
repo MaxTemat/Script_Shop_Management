@@ -40,4 +40,14 @@
         <field name="model_id" ref="model_shop_order"/>
         <field name="domain_force">[('company_id', 'in', company_ids)]</field>
     </record>
+    <record id="shop_stock_company_rule" model="ir.rule">
+        <field name="name">Shop stock: multi-company</field>
+        <field name="model_id" ref="model_shop_stock"/>
+        <field name="domain_force">[('company_id', 'in', company_ids)]</field>
+    </record>
+    <record id="shop_stock_move_company_rule" model="ir.rule">
+        <field name="name">Shop stock movement: multi-company</field>
+        <field name="model_id" ref="model_shop_stock_move"/>
+        <field name="domain_force">[('company_id', 'in', company_ids)]</field>
+    </record>
 </odoo>

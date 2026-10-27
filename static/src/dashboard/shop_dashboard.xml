@@ -11,13 +11,18 @@
                         <div class="o_shop_card" role="button" t-on-click="() => this.openShop(shop)">
                             <div class="o_shop_card_image">
                                 <img t-att-src="shop.image_url" t-att-alt="shop.name"/>
-                                <span t-if="shop.online" class="o_shop_card_badge" title="Online shop">
-                                    <i class="fa fa-globe"/>
-                                </span>
                             </div>
                             <div class="o_shop_card_body">
                                 <h4 class="mb-1" t-esc="shop.name"/>
-                                <span t-if="!shop.id" class="text-muted">
+                                <div t-if="shop.local or shop.online" class="o_shop_badges">
+                                    <span t-if="shop.local" class="o_shop_badge o_shop_badge_local">
+                                        <i class="fa fa-home"/> Local
+                                    </span>
+                                    <span t-if="shop.online" class="o_shop_badge o_shop_badge_online">
+                                        <i class="fa fa-globe"/> Online
+                                    </span>
+                                </div>
+                                <span t-if="!shop.id and !shop.website_id" class="text-muted">
                                     <t t-esc="shop.shop_count"/> shop(s)
                                 </span>
                             </div>
@@ -101,7 +106,7 @@
                             </div>
                         </div>
                         <div class="o_shop_kpi o_shop_kpi_stock" role="button"
-                             t-on-click="() => this.openList('shop_stock_picking_action', 'shop_id', 'shop_website_id')">
+                             t-on-click="() => this.openList('shop_stock_action', 'shop_id', 'shop_website_id')">
                             <div class="o_shop_kpi_icon"><i class="fa fa-cubes"/></div>
                             <div>
                                 <div class="o_shop_kpi_label">Stock</div>

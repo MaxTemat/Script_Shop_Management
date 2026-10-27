@@ -1,0 +1,64 @@
+.o_shop_stock_kanban {
+    .o_kanban_record {
+        border-radius: 16px;
+        border: 1px solid rgba(128, 128, 128, 0.18);
+        box-shadow: 0 4px 14px rgba(15, 23, 42, 0.07);
+        transition: transform 0.12s ease, box-shadow 0.12s ease;
+
+        &:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 24px rgba(99, 102, 241, 0.2);
+        }
+    }
+
+    .o_shop_stock_card {
+        padding: 0.25rem;
+    }
+
+    .o_shop_stock_image {
+        flex: 0 0 76px;
+        width: 76px;
+        height: 76px;
+        overflow: hidden;
+        border-radius: 14px;
+        background: linear-gradient(135deg, rgba(99, 102, 241, 0.12), rgba(16, 185, 129, 0.12));
+
+        img {
+            padding: 4px;
+        }
+    }
+
+    .o_shop_stock_name {
+        font-weight: 600;
+        line-height: 1.2;
+    }
+
+    .o_shop_stock_where {
+        margin-top: 2px;
+        font-size: 0.8rem;
+    }
+
+    .o_shop_stock_quantity {
+        margin-top: 0.4rem;
+        font-size: 1.8rem;
+        font-weight: 700;
+        line-height: 1.1;
+
+        .o_shop_stock_min {
+            margin-left: 0.5rem;
+            font-size: 0.75rem;
+            font-weight: 400;
+        }
+    }
+
+    .o_shop_stock_bar {
+        height: 6px;
+        margin: 0.4rem 0 0.3rem;
+        border-radius: 999px;
+        background: rgba(128, 128, 128, 0.18);
+    }
+
+    .o_shop_stock_detail {
+        font-size: 0.78rem;
+    }
+}

@@ -105,6 +105,27 @@ class Website(models.Model):
                     company=website.company_id.display_name,
                 ))
 
+    @api.constrains('is_shop', 'local_shop_id', 'warehouse_id')
+    def _check_own_warehouse(self):
+        """The warehouse of an online shop of its own belongs to that shop only."""
+        for website in self.filtered(lambda w: w.is_shop and not w.local_shop_id and w.warehouse_id):
+            owner = self.env['pos.config'].sudo().search([
+                ('is_shop', '=', True),
+                ('picking_type_id.warehouse_id', '=', website.warehouse_id.id),
+            ], limit=1) or self.sudo().search([
+                ('is_shop', '=', True),
+                ('local_shop_id', '=', False),
+                ('warehouse_id', '=', website.warehouse_id.id),
+                ('id', '!=', website.id),
+            ], limit=1)
+            if owner:
+                raise ValidationError(_(
+                    "The warehouse %(warehouse)s is already the stock of the shop %(shop)s. "
+                    "A warehouse can only belong to one shop: choose another warehouse.",
+                    warehouse=website.warehouse_id.display_name,
+                    shop=owner.display_name,
+                ))
+
     # ------------------------------------------------------- own warehouse creation
 
     @api.model_create_multi

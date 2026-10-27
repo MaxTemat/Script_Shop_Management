@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Stock dashboard: the products and their quantities in the warehouses of the shops -->
+    <record id="shop_stock_view_list" model="ir.ui.view">
+        <field name="name">shop.stock.list</field>
+        <field name="model">shop.stock</field>
+        <field name="arch" type="xml">
+            <list string="Shop Stock" create="0" edit="0" delete="0">
+                <field name="product_id"/>
+                <field name="categ_id" optional="hide"/>
+                <field name="shop_name"/>
+                <field name="warehouse_id" optional="show"/>
+                <field name="quantity" sum="Quantity" decoration-danger="quantity &lt;= 0"/>
+                <field name="reserved_quantity" sum="Reserved" optional="show"/>
+                <field name="available_quantity" sum="Available"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="shop_stock_view_kanban" model="ir.ui.view">
+        <field name="name">shop.stock.kanban</field>
+        <field name="model">shop.stock</field>
+        <field name="arch" type="xml">
+            <kanban class="o_shop_stock_kanban" create="0" edit="0" delete="0" sample="1"
+                    action="action_open_product" type="object">
+                <field name="product_id"/>
+                <field name="shop_name"/>
+                <field name="warehouse_id"/>
+                <field name="quantity"/>
+                <field name="reserved_quantity"/>
+                <field name="available_quantity"/>
+                <field name="min_quantity"/>
+                <field name="stock_status"/>
+                <progressbar field="stock_status" colors='{"ok": "success", "low": "warning", "out": "danger"}'
+                             sum_field="quantity"/>
+                <templates>
+                    <t t-name="card" class="o_shop_stock_card flex-row">
+                        <aside class="o_shop_stock_image">
+                            <field name="image_128" widget="image" alt="Product"
+                                   options="{'img_class': 'w-100 h-100 object-fit-contain'}"/>
+                        </aside>
+                        <main class="ps-3">
+                            <div class="d-flex justify-content-between align-items-start gap-2">
+                                <field name="product_id" class="o_shop_stock_name"/>
+                                <field name="stock_status" widget="badge"
+                                       decoration-success="stock_status == 'ok'"
+                                       decoration-warning="stock_status == 'low'"
+                                       decoration-danger="stock_status == 'out'"/>
+                            </div>
+                            <div class="o_shop_stock_where text-muted">
+                                <i class="fa fa-map-marker me-1"/><field name="shop_name"/>
+                                <span t-if="record.warehouse_id.value"> · <field name="warehouse_id"/></span>
+                            </div>
+                            <div class="o_shop_stock_quantity">
+                                <field name="quantity"/>
+                                <span t-if="record.min_quantity.raw_value > 0" class="o_shop_stock_min text-muted">
+                                    Minimum <field name="min_quantity"/>
+                                </span>
+                            </div>
+                            <div class="progress o_shop_stock_bar">
+                                <div t-attf-class="progress-bar bg-#{record.stock_status.raw_value == 'ok' ? 'success' : (record.stock_status.raw_value == 'low' ? 'warning' : 'danger')}"
+                                     t-att-style="'width: ' + (record.quantity.raw_value > 0 ? Math.max(0, Math.round(record.available_quantity.raw_value * 100 / record.quantity.raw_value)) : 0) + '%'"/>
+                            </div>
+                            <div class="d-flex justify-content-between o_shop_stock_detail text-muted">
+                                <span>Reserved <field name="reserved_quantity"/></span>
+                                <span>Available <field name="available_quantity"/></span>
+                            </div>
+                        </main>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="shop_stock_view_search" model="ir.ui.view">
+        <field name="name">shop.stock.search</field>
+        <field name="model">shop.stock</field>
+        <field name="arch" type="xml">
+            <search string="Search Stock">
+                <field name="product_id"/>
+                <field name="categ_id"/>
+                <field name="shop_id" domain="[('is_shop', '=', True)]"/>
+                <field name="shop_website_id" domain="[('is_shop', '=', True)]"/>
+                <field name="warehouse_id" domain="[('is_shop_warehouse', '=', True)]"/>
+                <filter name="filter_in_stock" string="In Stock" domain="[('quantity', '&gt;', 0)]"/>
+                <filter name="filter_low_stock" string="Low Stock" domain="[('stock_status', '=', 'low')]"/>
+                <filter name="filter_out_of_stock" string="Out of Stock" domain="[('quantity', '&lt;=', 0)]"/>
+                <group>
+                    <filter name="group_product" string="Product" context="{'group_by': 'product_id'}"/>
+                    <filter name="group_shop" string="Shop" context="{'group_by': 'shop_name'}"/>
+                    <filter name="group_categ" string="Product Category" context="{'group_by': 'categ_id'}"/>
+                    <filter name="group_warehouse" string="Warehouse" context="{'group_by': 'warehouse_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="shop_stock_action" model="ir.actions.act_window">
+        <field name="name">Stock</field>
+        <field name="res_model">shop.stock</field>
+        <field name="view_mode">kanban,list</field>
+        <field name="search_view_id" ref="shop_stock_view_search"/>
+        <field name="context">{'search_default_group_shop': 1}</field>
+    </record>
+</odoo>

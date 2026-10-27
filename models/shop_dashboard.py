@@ -71,6 +71,7 @@ class ShopDashboard(models.AbstractModel):
                 'image_url': f'/web/image/pos.config/{shop.id}/shop_image?unique={shop.write_date.timestamp()}'
                              if shop.shop_image else '/web/static/img/placeholder.png',
                 'shop_count': 1,
+                'local': True,
                 'online': bool(self._search_websites([('local_shop_id', '=', shop.id)])),
             })
         for website in websites:
@@ -81,6 +82,7 @@ class ShopDashboard(models.AbstractModel):
                 'name': website.name,
                 'image_url': self._get_website_image_url(website),
                 'shop_count': 1,
+                'local': False,
                 'online': True,
             })
         return cards

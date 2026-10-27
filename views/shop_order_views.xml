@@ -28,8 +28,8 @@
         <field name="arch" type="xml">
             <search string="Search Orders">
                 <field name="name" string="Order"/>
-                <field name="shop_id"/>
-                <field name="shop_website_id"/>
+                <field name="shop_id" domain="[('is_shop', '=', True)]"/>
+                <field name="shop_website_id" domain="[('is_shop', '=', True)]"/>
                 <field name="partner_id"/>
                 <filter name="filter_local" string="Local" domain="[('channel', '=', 'local')]"/>
                 <filter name="filter_online" string="Online" domain="[('channel', '=', 'online')]"/>
