@@ -9,7 +9,14 @@
     <menuitem id="menu_shop_purchase" name="Purchases" parent="menu_shop_root"
               action="shop_purchase_order_action" sequence="20"/>
     <menuitem id="menu_shop_orders" name="Orders" parent="menu_shop_root"
-              action="shop_pos_order_action" sequence="30"/>
-    <menuitem id="menu_shop_stock" name="Stock" parent="menu_shop_root"
-              action="shop_stock_picking_action" sequence="40"/>
+              action="shop_order_action" sequence="30"/>
+    <menuitem id="menu_shop_stock" name="Stock" parent="menu_shop_root" sequence="40"/>
+    <!-- Stock only groups its two submenus: clear the action it used to open (its old transfers list) -->
+    <record id="menu_shop_stock" model="ir.ui.menu">
+        <field name="action" eval="False"/>
+    </record>
+    <menuitem id="menu_shop_stock_dashboard" name="Dashboard" parent="menu_shop_stock"
+              action="shop_stock_action" sequence="10"/>
+    <menuitem id="menu_shop_stock_moves" name="Transfers" parent="menu_shop_stock"
+              action="shop_stock_move_action" sequence="20"/>
 </odoo>

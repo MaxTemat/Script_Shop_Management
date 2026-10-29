@@ -1,10 +1,10 @@
 <section style="padding: 32px 0; text-align: center;">
     <h1 style="font-weight: 700;">Script Shop Management</h1>
-    <p style="font-size: 1.25rem; max-width: 760px; margin: 12px auto;">
-        Run all your local shops from a single Odoo application: purchases, sales, stock
-        and a modern dashboard for every shop.
+    <p style="font-size: 1.25rem; max-width: 800px; margin: 12px auto;">
+        Run all your shops from a single Odoo application: local shops (Point of Sale) and online shops (website),
+        with their purchases, sales, stock and a modern dashboard.
     </p>
-    <p><b>Odoo 19.0</b> &middot; Point of Sale &middot; Purchase &middot; Inventory &middot; LGPL-3</p>
+    <p><b>Odoo 19.0</b> &middot; Point of Sale &middot; Purchase &middot; Inventory &middot; eCommerce &middot; LGPL-3</p>
     <img src="screenshot_2_dashboard.jpg" alt="Shop dashboard"
          style="max-width: 100%; border-radius: 12px; box-shadow: 0 8px 24px rgba(0,0,0,.18);"/>
 </section>
@@ -13,87 +13,112 @@
     <h2 style="text-align: center;">What it does</h2>
     <div class="row">
         <div class="col-md-4" style="padding: 12px;">
-            <h4>Shops from your Points of Sale</h4>
-            <p>Tick <i>Is a Shop</i> on any Point of Sale and give it an image. Each shop gets its own card and its own figures.</p>
+            <h4>Local and online shops</h4>
+            <p>Tick <i>Is a Shop</i> on a Point of Sale or on a website. An online shop can be <b>linked</b> to a local shop (it shares its image, destination shop and stock) or run as a shop of its own, with its own warehouse created automatically.</p>
         </div>
         <div class="col-md-4" style="padding: 12px;">
             <h4>The right products in the right shop</h4>
-            <p>Choose in which shops each product is available. A shop's cash register only loads and finds the products assigned to it, even with restricted categories.</p>
+            <p>Choose in which shops each product is available. A cash register and an online shop only load and show the products assigned to them.</p>
         </div>
         <div class="col-md-4" style="padding: 12px;">
-            <h4>Destination shop</h4>
-            <p>Set the destination shop on purchase orders and stock transfers, to know exactly what is bought for, and delivered to, each shop.</p>
+            <h4>Destination shop everywhere</h4>
+            <p>Purchase orders, online orders and stock transfers carry their shop, so you always know what is bought for, sold by and delivered from each shop.</p>
         </div>
     </div>
 </section>
 
 <section style="padding: 24px 0;">
     <h2 style="text-align: center;">A dashboard that reads at a glance</h2>
-    <ul style="max-width: 760px; margin: 0 auto 16px auto;">
-        <li>One card per shop, plus one card for <b>all the shops</b> with your company logo.</li>
+    <ul style="max-width: 800px; margin: 0 auto 16px auto;">
+        <li>One card per shop, plus a card for <b>all the shops</b>. <b>Local</b> and <b>Online</b> badges tell which kind of shop it is.</li>
         <li>Period selector: today, this week, this month, this year or custom dates.</li>
-        <li>Indicators: <b>purchases</b>, <b>sales</b>, <b>real turnover</b> (tax excluded, net of refunds) and <b>stock</b>.</li>
+        <li>Indicators: <b>purchases</b>, <b>local sales</b>, <b>real turnover</b> (tax excluded), <b>online sales</b> and <b>stock</b>.</li>
         <li>Turnover and purchases curves, turnover by shop, best-selling and least-selling products.</li>
-        <li>One click on an indicator opens the matching list, already filtered on the shop.</li>
+        <li><b>Online against local</b>: orders, amount, real turnover and share of each channel.</li>
+        <li>One click on an indicator opens the matching orders, purchases or stock, already filtered on the shop.</li>
     </ul>
     <div style="text-align: center;">
         <img src="screenshot_3_charts.jpg" alt="Dashboard charts"
              style="max-width: 100%; border-radius: 12px; box-shadow: 0 8px 24px rgba(0,0,0,.18); margin-bottom: 16px;"/>
         <img src="screenshot_1_shops.jpg" alt="Shop cards"
              style="max-width: 100%; border-radius: 12px; box-shadow: 0 8px 24px rgba(0,0,0,.18); margin-bottom: 16px;"/>
+        <img src="screenshot_5_online_vs_local.jpg" alt="Online against local"
+             style="max-width: 100%; border-radius: 12px; box-shadow: 0 8px 24px rgba(0,0,0,.18); margin-bottom: 16px;"/>
+    </div>
+</section>
+
+<section style="padding: 24px 0;">
+    <h2 style="text-align: center;">Shared stock, clear stock</h2>
+    <ul style="max-width: 800px; margin: 0 auto;">
+        <li><b>Shared stock</b>: online orders leave from the warehouse of the website, which is the warehouse of the local shop when the website is linked. The availability shown on the website comes from that stock.</li>
+        <li><b>Stock dashboard</b>: your products as cards (image, shop, quantity, availability bar, reserved, available) with a status: in stock, low stock (below the reordering minimum) or out of stock. Switch to the list view when you prefer.</li>
+        <li><b>Transfers</b>: the history of every stock movement of the shops (receipts, deliveries, point of sale exits, inventory adjustments).</li>
+        <li><b>One warehouse, one shop</b>: a warehouse can only be the stock of a single shop, so every quantity is counted once.</li>
+    </ul>
+    <div style="text-align: center;">
+        <img src="screenshot_6_stock.jpg" alt="Stock dashboard"
+             style="max-width: 100%; border-radius: 12px; box-shadow: 0 8px 24px rgba(0,0,0,.18); margin-top: 16px;"/>
     </div>
 </section>
 
 <section style="padding: 24px 0;">
     <h2 style="text-align: center;">Purchases, Orders and Stock per shop</h2>
-    <p style="text-align: center; max-width: 760px; margin: 0 auto 16px auto;">
-        Three dedicated menus list only what concerns your shops, with quick search by shop and by product,
-        filters and grouping.
+    <p style="text-align: center; max-width: 800px; margin: 0 auto 16px auto;">
+        Dedicated menus list only what concerns your shops. <b>Orders</b> gathers the point of sale orders and the website orders
+        in one list (channel Local or Online), with quick search by shop and by product.
     </p>
     <div style="text-align: center;">
         <img src="screenshot_4_purchases.jpg" alt="Purchases by shop"
              style="max-width: 100%; border-radius: 12px; box-shadow: 0 8px 24px rgba(0,0,0,.18);"/>
+        <img src="screenshot_7_orders.jpg" alt="Local and online orders"
+             style="max-width: 100%; border-radius: 12px; box-shadow: 0 8px 24px rgba(0,0,0,.18); margin-top: 16px;"/>
     </div>
 </section>
 
 <section style="padding: 24px 0;">
     <h2 style="text-align: center;">Security and languages</h2>
-    <ul style="max-width: 760px; margin: 0 auto;">
+    <ul style="max-width: 800px; margin: 0 auto;">
         <li><b>User</b> group: sees the dashboard and the shop lists.</li>
         <li><b>Manager</b> group: also sets up the shops (shop flag, image, products of each shop).</li>
-        <li>A shop must belong to the company of the purchase or transfer that uses it.</li>
+        <li>Multi-company ready: a shop must belong to the company of the orders and transfers that use it.</li>
         <li>Available in <b>English</b> and <b>French</b>.</li>
     </ul>
 </section>
 
 <section style="padding: 24px 0;">
     <h2 style="text-align: center;">Getting started</h2>
-    <ol style="max-width: 760px; margin: 0 auto;">
-        <li>Install <i>Script Shop Management</i> (it needs Point of Sale, Purchase and Inventory).</li>
+    <ol style="max-width: 800px; margin: 0 auto;">
+        <li>Install <i>Script Shop Management</i> (it needs Point of Sale, Purchase, Inventory and eCommerce with stock).</li>
         <li>Add your user to the <i>Script Shop Management</i> group (User or Manager).</li>
-        <li>Open your Point of Sale configuration, tick <i>Is a Shop</i> and add an image.</li>
-        <li>On your products, fill <i>Available in Shops</i>.</li>
+        <li>Open your Point of Sale configuration, tick <i>Is a Shop</i> and add an image. Give each shop its own warehouse.</li>
+        <li>On your products, fill <i>Available in Shops</i> (and <i>Available in Online Shops</i> for websites that are not linked).</li>
+        <li>On a website, tick <i>Is a Shop</i> and optionally choose the linked local shop.</li>
         <li>Open <i>Script Shop Management &rsaquo; Dashboard</i>.</li>
     </ol>
+    <p style="text-align: center; margin-top: 16px;"><b>Note:</b> this app contains Python code, so it is not available on Odoo Online. Use Odoo.sh or an on-premise installation.</p>
 </section>
 
 <hr/>
 
 <section style="padding: 24px 0;">
-    <h1 style="text-align: center; font-weight: 700;">Version française</h1>
-    <p style="font-size: 1.15rem; max-width: 760px; margin: 12px auto; text-align: center;">
-        Pilotez toutes vos boutiques physiques depuis une seule application Odoo&nbsp;: achats, ventes en caisse, stock
-        et un tableau de bord moderne pour chaque boutique.
+    <h1 style="text-align: center; font-weight: 700;">Version fran&ccedil;aise</h1>
+    <p style="font-size: 1.15rem; max-width: 800px; margin: 12px auto; text-align: center;">
+        Pilotez toutes vos boutiques depuis une seule application Odoo : boutiques locales (point de vente) et boutiques en ligne (site web),
+        avec leurs achats, ventes, stock et un tableau de bord moderne.
     </p>
-    <ul style="max-width: 760px; margin: 0 auto;">
-        <li><b>Boutiques</b>&nbsp;: cochez <i>Est une boutique</i> sur un point de vente et ajoutez son image.</li>
-        <li><b>Produits par boutique</b>&nbsp;: la caisse d'une boutique ne charge que les produits qui lui sont assignés.</li>
-        <li><b>Boutique de destination</b> sur les achats et les transferts de stock.</li>
-        <li><b>Tableau de bord</b>&nbsp;: une carte par boutique et une carte «&nbsp;Toutes les boutiques&nbsp;», sélecteur de période,
-            achats, ventes, CA réel, stock, courbes, produits les plus et les moins vendus.</li>
-        <li><b>Achats, Commandes et Stock</b>&nbsp;: listes dédiées avec recherche rapide par boutique et par produit.</li>
-        <li><b>Sécurité</b>&nbsp;: groupes Utilisateur et Responsable. Disponible en français et en anglais.</li>
+    <ul style="max-width: 800px; margin: 0 auto;">
+        <li><b>Boutiques locales et en ligne</b> : cochez &laquo; Est une boutique &raquo; sur un point de vente ou sur un site web. Un site peut &ecirc;tre <b>li&eacute;</b> &agrave; une boutique locale (image, boutique de destination et stock partag&eacute;s) ou &ecirc;tre une boutique &agrave; part enti&egrave;re, avec son propre entrep&ocirc;t cr&eacute;&eacute; automatiquement.</li>
+        <li><b>Produits par boutique</b> : la caisse et la boutique en ligne ne chargent et n'affichent que les produits qui leur sont assign&eacute;s.</li>
+        <li><b>Boutique de destination</b> sur les achats, les commandes en ligne et les transferts de stock.</li>
+        <li><b>Tableau de bord</b> : une carte par boutique et une carte &laquo; Toutes les boutiques &raquo;, badges Local et En ligne, s&eacute;lecteur de p&eacute;riode, achats, ventes locales, CA r&eacute;el, ventes en ligne, stock, courbes, produits les plus et les moins vendus, comparaison en ligne contre local. Un clic sur un indicateur ouvre les commandes, achats ou stock concern&eacute;s.</li>
+        <li><b>Stock partag&eacute;</b> : les commandes en ligne sortent de l'entrep&ocirc;t du site (celui de la boutique locale si le site est li&eacute;), et la disponibilit&eacute; affich&eacute;e sur le site vient de ce stock.</li>
+        <li><b>Tableau de bord du stock</b> : vos articles en cartes (image, boutique, quantit&eacute;, barre de disponibilit&eacute;, r&eacute;serv&eacute;, disponible) avec leur &eacute;tat : en stock, stock faible ou rupture. Vue liste disponible.</li>
+        <li><b>Transferts</b> : l'historique de tous les mouvements de stock des boutiques (r&eacute;ceptions, livraisons, sorties de caisse, ajustements d'inventaire).</li>
+        <li><b>Un entrep&ocirc;t, une boutique</b> : un entrep&ocirc;t ne peut &ecirc;tre le stock que d'une seule boutique, chaque quantit&eacute; est donc compt&eacute;e une seule fois.</li>
+        <li><b>Achats, Commandes et Stock</b> : listes d&eacute;di&eacute;es avec recherche rapide par boutique et par article ; le menu Commandes r&eacute;unit les commandes de caisse et du site.</li>
+        <li><b>S&eacute;curit&eacute;</b> : groupes Utilisateur et Responsable, r&egrave;gles multi-soci&eacute;t&eacute;s. Disponible en fran&ccedil;ais et en anglais.</li>
     </ul>
+    <p style="text-align: center; margin-top: 16px;"><b>&Agrave; noter :</b> cette application contient du code Python, elle n'est donc pas disponible sur Odoo Online (Odoo.sh ou installation sur serveur).</p>
 </section>
 
 <section style="padding: 24px 0; text-align: center;">

@@ -194,6 +194,7 @@ $shop-sky: #0ea5e9;
         &.o_shop_kpi_sales .o_shop_kpi_icon { background: linear-gradient(135deg, $shop-indigo, #8b5cf6); }
         &.o_shop_kpi_revenue .o_shop_kpi_icon { background: linear-gradient(135deg, $shop-emerald, #14b8a6); }
         &.o_shop_kpi_stock .o_shop_kpi_icon { background: linear-gradient(135deg, $shop-sky, #3b82f6); }
+        &.o_shop_kpi_online .o_shop_kpi_icon { background: linear-gradient(135deg, #0ea5e9, #06b6d4); }
     }
 
     // ---- Chart panels
@@ -248,6 +249,47 @@ $shop-sky: #0ea5e9;
             font-weight: 600;
             color: #b45309;
             background: rgba(245, 158, 11, 0.18);
+        }
+    }
+
+    .o_shop_badges {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.35rem;
+        margin-top: 0.15rem;
+
+        .o_shop_badge {
+            padding: 0.15rem 0.6rem;
+            border-radius: 999px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: #fff;
+
+            &.o_shop_badge_local {
+                background: linear-gradient(135deg, #6366f1, #8b5cf6);
+            }
+
+            &.o_shop_badge_online {
+                background: linear-gradient(135deg, #0ea5e9, #06b6d4);
+            }
+        }
+    }
+
+    .o_shop_channels {
+        tbody tr[role="button"]:hover {
+            background: rgba(99, 102, 241, 0.08);
+        }
+
+        .o_shop_dot {
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            margin-right: 6px;
+            border-radius: 50%;
+
+            &.o_shop_dot_local { background: #6366f1; }
+            &.o_shop_dot_online { background: #0ea5e9; }
         }
     }
 }

@@ -87,6 +87,30 @@ Le module respecte le **multi-société** : chaque société ne voit que ses pro
 
 Développé par **Script Consulting**, consultant IT Odoo, dans le cadre de la série vidéo **« Boutique Locale »**.
 
+## Boutiques en ligne (saison 2)
+
+Le module s'étend aux sites web Odoo (dépendances `website_sale` et `website_sale_stock`). Un site web marqué « Est une boutique » devient une boutique en ligne, liée ou non à une boutique locale :
+
+- **Est une boutique** : marque le site web comme boutique en ligne.
+- **Boutique locale liée** : boutique locale dont le site reprend les données (facultatif).
+- **Image de la boutique** : image du site quand il n'est pas lié.
+
+Quand le site est lié, il reprend l'image, la boutique de destination et l'entrepôt de la boutique locale (champs en lecture seule). Une boutique locale ne peut être liée qu'à un seul site. Non lié, le site a son propre entrepôt, créé automatiquement.
+
+**Stock partagé** : les commandes en ligne sortent de l'entrepôt du site (celui de la boutique locale si le site est lié), et la disponibilité affichée sur le site vient du stock de cet entrepôt. Un panier ouvert suit le changement d'entrepôt du site ; une commande confirmée garde son entrepôt.
+
+**Visibilité des produits** : un site boutique n'affiche que ses produits (catalogue, recherche, accès direct par adresse). Un site lié affiche les produits dont la boutique de destination est sa boutique locale (champ « Disponible dans les boutiques »). Un site non lié affiche les produits assignés au site (champ « Disponible dans les boutiques en ligne »). Un produit sans boutique n'apparaît sur aucun site boutique ; les sites qui ne sont pas des boutiques ne changent pas.
+
+Ces champs se trouvent dans **Site web › Configuration › Sites web**. **Commandes, sorties de stock et boutique de destination** : une commande passée sur un site boutique porte la boutique de ce site dans « Boutique de destination » (la boutique locale liée, ou « Boutique en ligne » pour un site non lié). Les sorties de stock, en caisse comme sur le site, portent la même boutique. Le menu **Commandes** réunit les commandes de caisse et les commandes des sites (colonne « Canal » : Local ou En ligne, hors paniers), et le menu **Stock** liste les transferts et les sorties de stock des boutiques.
+
+**Menus et droits (groupes Utilisateur et Responsable)** : L'**Utilisateur** voit le tableau de bord, les achats, les commandes (caisse et site) et le stock, en lecture ; il reçoit pour cela les droits de lecture sur les commandes de vente. Le **Responsable** configure en plus les boutiques et les produits de chaque boutique ; les sites boutiques se configurent dans **Site web › Configuration › Sites web**. Sans groupe, les menus du module sont invisibles et le tableau de bord est refusé.
+
+**Un stock, une boutique** : un entrepôt ne peut être le stock que d'une seule boutique. Le module refuse de cocher « Est une boutique » sur un point de vente dont l'entrepôt (type d'opération) est déjà celui d'une autre boutique ou d'un site boutique non lié, et de donner à un site non lié l'entrepôt d'une autre boutique. Le stock de chaque boutique est ainsi affiché une seule fois.
+
+**Menu Stock** : deux sous-menus. **Tableau de bord** présente les articles en cartes (vue kanban : image, boutique, entrepôt, quantité, barre de disponibilité, réservé et disponible, état du stock en stock, stock faible ou rupture), regroupées par boutique (vue par défaut), et une vue liste ; les quantités s'additionnent sur toutes les boutiques, et se limitent à la boutique choisie quand on filtre sur une boutique. Les articles assignés à une boutique mais en rupture apparaissent avec 0. **Transferts** retrace tous les mouvements de stock des entrepôts des boutiques (réceptions, livraisons, sorties de caisse, ajustements d'inventaire), avec le sens (entrée, sortie, interne), la boutique et l'état ; un clic ouvre le transfert d'origine. Dans le tableau de bord d'une boutique, la carte **Stock** ouvre le tableau de bord du stock de cette boutique.
+
+**Tableau de bord** : les boutiques en ligne apparaissent dans le tableau de bord. Une boutique locale liée à un site affiche un seul tableau de bord, avec les ventes en ligne comparées aux ventes locales (commandes, montant, chiffre d'affaires réel, part). Un site non lié a son propre tableau de bord : commandes, montant, chiffre d'affaires réel, stock de son entrepôt, achats reçus dans son entrepôt et produits les plus vendus. La carte « Toutes les boutiques » réunit l'ensemble.
+
 ## Licence
 
 Distribué sous licence [LGPL-3](https://www.gnu.org/licenses/lgpl-3.0.html).

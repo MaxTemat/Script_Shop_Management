@@ -7,6 +7,7 @@
         <field name="arch" type="xml">
             <xpath expr="//field[@name='origin']" position="after">
                 <field name="shop_id" options="{'no_create': True}"/>
+                <field name="shop_website_id" options="{'no_create': True}"/>
             </xpath>
         </field>
     </record>

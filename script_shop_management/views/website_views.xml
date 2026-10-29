@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_website_form_shop" model="ir.ui.view">
+        <field name="name">website.form.shop</field>
+        <field name="model">website</field>
+        <field name="inherit_id" ref="website.view_website_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//group[@name='domain']" position="after">
+                <group name="online_shop" string="Online Shop">
+                    <field name="is_shop"/>
+                    <field name="local_shop_id" invisible="not is_shop"
+                           options="{'no_create': True}"/>
+                    <field name="destination_shop_id" invisible="not is_shop or not local_shop_id"/>
+                    <field name="warehouse_id" invisible="not is_shop"
+                           readonly="local_shop_id"
+                           options="{'no_create': True}"/>
+                    <field name="shop_image" widget="image" class="oe_avatar"
+                           invisible="not is_shop" readonly="local_shop_id"/>
+                </group>
+            </xpath>
+        </field>
+    </record>
+</odoo>
