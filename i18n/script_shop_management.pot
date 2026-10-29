@@ -444,6 +444,12 @@ msgstr ""
 #. module: script_shop_management
 #. odoo-javascript
 #: code:addons/script_shop_management/static/src/dashboard/shop_dashboard.xml:0
+msgid "Local sales"
+msgstr ""
+
+#. module: script_shop_management
+#. odoo-javascript
+#: code:addons/script_shop_management/static/src/dashboard/shop_dashboard.xml:0
 msgid "% of the turnover"
 msgstr ""
 

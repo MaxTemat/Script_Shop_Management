@@ -121,6 +121,11 @@ export class ShopDashboard extends Component {
         return this.isAllShops || this.state.shop.online;
     }
 
+    /** The local sales are shown everywhere except on an online shop of its own. */
+    get showLocal() {
+        return !this.state.shop.website_id || !!this.state.shop.id;
+    }
+
     get shareTitle() {
         return this.isAllShops ? _t("Turnover by shop") : _t("Best sellers share");
     }

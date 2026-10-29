@@ -73,14 +73,14 @@
                                 <div class="o_shop_kpi_hint"><t t-esc="state.data.purchases.count"/> confirmed order(s)</div>
                             </div>
                         </div>
-                        <div class="o_shop_kpi o_shop_kpi_sales" role="button"
-                             t-on-click="() => this.openList('shop_order_action', 'shop_id', 'shop_website_id')">
+                        <div t-if="showLocal" class="o_shop_kpi o_shop_kpi_sales" role="button"
+                             t-on-click="() => this.openList('shop_order_action', 'shop_id', 'shop_website_id', { filter_local: 1 })">
                             <div class="o_shop_kpi_icon"><i class="fa fa-shopping-cart"/></div>
                             <div>
-                                <div class="o_shop_kpi_label">Sales</div>
-                                <div class="o_shop_kpi_value" t-esc="money(state.data.sales.amount)"/>
+                                <div class="o_shop_kpi_label">Local sales</div>
+                                <div class="o_shop_kpi_value" t-esc="money(state.data.channels.local.amount)"/>
                                 <div class="o_shop_kpi_hint">
-                                    <t t-esc="state.data.sales.count"/> order(s),
+                                    <t t-esc="state.data.channels.local.count"/> order(s),
                                     <t t-esc="state.data.sales.refund_count"/> refund(s)
                                 </div>
                             </div>
@@ -98,7 +98,7 @@
                             <div class="o_shop_kpi_icon"><i class="fa fa-globe"/></div>
                             <div>
                                 <div class="o_shop_kpi_label">Online sales</div>
-                                <div class="o_shop_kpi_value" t-esc="money(state.data.channels.online.real_revenue)"/>
+                                <div class="o_shop_kpi_value" t-esc="money(state.data.channels.online.amount)"/>
                                 <div class="o_shop_kpi_hint">
                                     <t t-esc="state.data.channels.online.count"/> order(s),
                                     <t t-esc="state.data.channels.online_share"/>% of the turnover

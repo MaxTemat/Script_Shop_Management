@@ -445,6 +445,12 @@ msgstr "Ventes en ligne"
 #. module: script_shop_management
 #. odoo-javascript
 #: code:addons/script_shop_management/static/src/dashboard/shop_dashboard.xml:0
+msgid "Local sales"
+msgstr "Ventes locales"
+
+#. module: script_shop_management
+#. odoo-javascript
+#: code:addons/script_shop_management/static/src/dashboard/shop_dashboard.xml:0
 msgid "% of the turnover"
 msgstr "% du chiffre d'affaires"
 
